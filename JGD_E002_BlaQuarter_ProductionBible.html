@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jamestown Glory Days — E002 Bla Quarter — Production Bible</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Karla:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   JAMESTOWN GLORY DAYS · E002 · BLA QUARTER
+   Location palette: deep terracotta red · arch shadow
+   grey drainpipe · yellow jerrycans · cracked tile
+═══════════════════════════════════════════════ */
+:root {
+  /* E002 location palette — terracotta compound */
+  --terra:#B54535;--terra-d:#8A2E22;--terra-w:#D06050;--terra-p:#F5EAE7;--terra-b:#FDF5F3;
+  --arch:#1A1008;--arch-m:#2E1810;--arch-s:#4A2818;--arch-mu:#8A6858;
+  --yellow:#D4A820;--yellow-lt:#F5E8A0;
+  --slate:#8A9098;--slate-lt:#C8CDD4;
+  --cream:#FDFAF2;--parch:#F5EDE8;--aged:#EDD8D0;
+  /* keep ochre as secondary for shared consistency */
+  --ochre:#C8903A;--ochre-w:#E8B84B;
+  --teal:#2D7A5E;--teal-v:#3D8A6E;
+  --red:#B83020;
+  --ink:#1A1008;--ink-m:#2E1810;--ink-s:#4A2818;--ink-mu:#8A6858;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.8}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--parch)}::-webkit-scrollbar-thumb{background:var(--terra);border-radius:2px}
+
+/* ── SIDEBAR ──────────────────────────────────── */
+.sb{position:fixed;left:0;top:0;bottom:0;width:256px;background:var(--arch);z-index:100;display:flex;flex-direction:column;border-right:1px solid var(--arch-m);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.sb-top{padding:1.6rem 1.4rem .9rem;border-bottom:1px solid var(--arch-m)}
+.sb-series{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra-w);display:block;margin-bottom:.15rem}
+.sb-doc{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;color:var(--cream);line-height:1.05}
+.sb-year{font-size:.58rem;color:var(--arch-mu);letter-spacing:.12em;text-transform:uppercase;margin-top:.25rem;display:block}
+.sb-ep{padding:.8rem 1.4rem;border-bottom:1px solid var(--arch-m);display:flex;align-items:center;gap:.7rem}
+.ep-badge{background:var(--terra);color:white;font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:.25rem .55rem;border-radius:2px;flex-shrink:0}
+.ep-name{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--cream);font-style:italic;display:block;line-height:1.2}
+.ep-detail{font-size:.6rem;color:var(--arch-mu);letter-spacing:.05em;margin-top:.1rem;display:block}
+.nav-wrap{flex:1;overflow-y:auto;padding:.5rem 0}
+.nav-grp{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--arch-s);padding:.5rem 1.4rem .2rem;font-weight:700;margin-top:.3rem}
+.nav-tag{display:inline-block;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(45,122,94,.3);color:var(--teal-v);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle}
+.ni{display:flex;align-items:center;gap:.6rem;padding:.45rem 1.4rem;font-size:.74rem;color:var(--arch-mu);cursor:pointer;transition:all .18s;border-left:2px solid transparent;font-weight:400}
+.ni:hover{color:var(--terra-w);background:rgba(181,69,53,.08)}
+.ni.active{color:var(--terra-w);border-left-color:var(--terra);background:rgba(181,69,53,.1);font-weight:500}
+.ni.shared:hover,.ni.shared.active{color:var(--teal-v)}
+.ni.shared.active{border-left-color:var(--teal)}
+.ni-ico{font-size:.78rem;width:13px;text-align:center;flex-shrink:0}
+.sb-foot{padding:.85rem 1.4rem;border-top:1px solid var(--arch-m);font-size:.58rem;color:var(--arch-s);letter-spacing:.05em;line-height:1.6}
+.sb-foot strong{color:var(--terra);font-weight:600}
+
+.mb-btn{display:none;position:fixed;top:.85rem;left:.85rem;z-index:200;background:var(--arch);border:none;width:36px;height:36px;border-radius:3px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.mb-btn span{display:block;width:17px;height:1.5px;background:var(--terra-w);border-radius:1px}
+
+/* ── PROGRESS ─────────────────────────────────── */
+.prog{position:fixed;top:0;left:256px;right:0;height:2px;background:var(--aged);z-index:98}
+.prog-f{height:100%;background:linear-gradient(90deg,var(--terra),var(--yellow));width:0%;transition:width .08s}
+
+.main{margin-left:256px;min-height:100vh}
+
+/* ── HERO — terracotta compound ───────────────── */
+.hero{position:relative;height:100vh;min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 4.5rem 3.5rem;overflow:hidden}
+.h-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 60% 30%,rgba(181,69,53,.18) 0%,transparent 55%),
+  radial-gradient(ellipse at 15% 80%,rgba(212,168,32,.08) 0%,transparent 45%),
+  linear-gradient(170deg,#0A0604 0%,#1A1008 45%,#2A1408 100%)}
+.h-tex{position:absolute;inset:0;background-image:
+  repeating-linear-gradient(0deg,transparent,transparent 58px,rgba(181,69,53,.01) 58px,rgba(181,69,53,.01) 59px),
+  repeating-linear-gradient(90deg,transparent,transparent 78px,rgba(181,69,53,.007) 78px,rgba(181,69,53,.007) 79px)}
+/* Arch silhouette suggestion */
+.h-arch{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:260px;height:320px;border-radius:130px 130px 0 0;background:rgba(181,69,53,.04);border:1px solid rgba(181,69,53,.08);pointer-events:none}
+.h-acc{position:absolute;right:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent 0%,var(--terra) 25%,var(--yellow) 65%,transparent 100%);opacity:.45}
+.h-ep-label{position:absolute;top:2.5rem;left:4.5rem;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--terra);opacity:0;animation:fup .6s ease .1s forwards}
+.h-ep-num{position:absolute;top:3.5rem;left:4.5rem;font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:700;color:rgba(181,69,53,.07);line-height:1;opacity:0;animation:fup .6s ease .15s forwards;pointer-events:none;user-select:none}
+.h-eye{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--terra);margin-bottom:.9rem;opacity:0;animation:fup .6s ease .2s forwards}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,7vw,6rem);font-weight:700;color:var(--cream);line-height:.92;margin-bottom:.35rem;opacity:0;animation:fup .7s ease .35s forwards}
+.h-title em{font-style:italic;color:var(--terra-w)}
+.h-title .days{display:block;font-size:clamp(1.4rem,3.5vw,2.8rem);color:var(--terra);font-style:normal;margin-top:.1rem}
+.h-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(.85rem,2vw,1.25rem);font-weight:300;color:var(--slate-lt);font-style:italic;margin-bottom:1rem;opacity:0;animation:fup .7s ease .5s forwards}
+.h-tagline{font-size:.7rem;letter-spacing:.08em;color:var(--teal-v);font-style:italic;margin-bottom:2rem;padding-left:.8rem;opacity:0;animation:fup .7s ease .6s forwards;border-left:2px solid var(--teal)}
+.h-meta{display:flex;gap:.8rem;flex-wrap:wrap;opacity:0;animation:fup .7s ease .75s forwards}
+.htag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-w);padding:.28rem .8rem;border:1px solid rgba(181,69,53,.35);border-radius:2px}
+.htag.t{color:var(--teal-v);border-color:rgba(61,138,110,.32)}
+.htag.y{color:var(--yellow);border-color:rgba(212,168,32,.32)}
+.h-scroll{position:absolute;bottom:1.8rem;right:4.5rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--arch-mu);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fup .6s ease 1.1s forwards}
+.h-sline{width:1px;height:34px;background:linear-gradient(to bottom,var(--terra),transparent);animation:spulse 2s ease infinite}
+
+/* ── SECTION BASE ─────────────────────────────── */
+.sec{padding:4.5rem}
+.sec-parch{background:var(--parch)}
+.sec-ink{background:var(--arch);color:var(--cream)}
+.sec-eye{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--terra);margin-bottom:.6rem;font-weight:700}
+.sec-eye.t{color:var(--teal-v)}
+.sec-eye.y{color:var(--yellow)}
+.sec-eye.shared-label::after{content:'· SHARED ACROSS ALL EPISODES';margin-left:.5rem;color:var(--teal-v);font-size:.52rem;letter-spacing:.15em}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.65rem,3.6vw,2.7rem);font-weight:700;line-height:1.1;margin-bottom:1.2rem}
+.sec-ink .sec-title{color:var(--cream)}
+.sec-rule{width:48px;height:3px;background:var(--terra);margin-bottom:1.7rem;border-radius:1px}
+.sec-rule.t{background:var(--teal)}
+.sec-rule.y{background:var(--yellow)}
+.body-t{font-size:.9rem;line-height:1.8;color:var(--ink-s);max-width:660px}
+.sec-ink .body-t{color:var(--slate-lt)}
+
+.shared-strip{height:3px;background:linear-gradient(90deg,var(--teal),rgba(61,138,110,.2))}
+.shared-notice{background:rgba(45,122,94,.06);border-bottom:1px solid rgba(45,122,94,.15);padding:.6rem 4.5rem;font-size:.65rem;color:var(--teal-v);letter-spacing:.08em;display:flex;align-items:center;gap:.6rem}
+.shared-notice::before{content:'↗'}
+
+/* ── LOCATION ANALYSIS ──────────────────────────── */
+.loc-compare{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.8rem 0}
+.loc-card{border-radius:6px;padding:1.4rem;position:relative;overflow:hidden}
+.loc-card.e001{background:linear-gradient(135deg,rgba(200,144,58,.12),rgba(200,144,58,.04));border:1px solid rgba(200,144,58,.25)}
+.loc-card.e002{background:linear-gradient(135deg,rgba(181,69,53,.15),rgba(181,69,53,.05));border:1px solid rgba(181,69,53,.3)}
+.loc-ep{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:.4rem}
+.loc-card.e001 .loc-ep{color:var(--ochre)}
+.loc-card.e002 .loc-ep{color:var(--terra)}
+.loc-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;margin-bottom:.6rem;color:var(--ink)}
+.loc-detail{font-size:.77rem;color:var(--ink-s);line-height:1.6}
+
+/* ── YOUTH IMPACT BANNER ────────────────────────── */
+.youth-banner{background:linear-gradient(135deg,#1A4535,var(--teal));padding:2rem 2.2rem;border-radius:6px;margin:2rem 0;position:relative;overflow:hidden}
+.youth-banner::before{content:'JAMESTOWN GLORY DAYS';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:rgba(255,255,255,.04);white-space:nowrap;pointer-events:none}
+.yb-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.4rem;font-weight:700}
+.yb-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:white;font-weight:700;margin-bottom:.6rem}
+.yb-text{font-size:.83rem;color:rgba(255,255,255,.85);line-height:1.65;max-width:680px}
+.yb-pillars{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.yb-pill{font-size:.62rem;letter-spacing:.08em;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.25);padding:.25rem .7rem;border-radius:20px}
+
+/* ── LOGLINE ────────────────────────────────────── */
+.logline{font-family:'Cormorant Garamond',serif;font-size:clamp(.95rem,2.1vw,1.35rem);font-style:italic;line-height:1.65;color:var(--ink);border-left:3px solid var(--terra);padding:.85rem 0 .85rem 1.3rem;margin:1.6rem 0;max-width:700px}
+
+/* ── THREE-PART ARC ─────────────────────────────── */
+.arc-grid{display:grid;grid-template-columns:repeat(3,1fr);margin:2.2rem -4.5rem}
+.arc-card{padding:2.5rem 2.2rem;position:relative;cursor:pointer;transition:background .3s;border-right:1px solid rgba(181,69,53,.15);overflow:hidden}
+.arc-card:last-child{border-right:none}
+.arc-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:var(--terra);opacity:.06;transition:height .4s cubic-bezier(.16,1,.3,1)}
+.arc-card:hover::before{height:100%}
+.arc-n{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:rgba(181,69,53,.11);line-height:1;margin-bottom:.35rem;transition:color .3s}
+.arc-card:hover .arc-n{color:rgba(181,69,53,.24)}
+.arc-lbl{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:.45rem}
+.arc-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--cream);margin-bottom:.75rem;font-style:italic}
+.arc-dur{font-size:.65rem;color:var(--teal-v);letter-spacing:.08em;margin-bottom:.75rem}
+.arc-desc{font-size:.78rem;color:var(--arch-mu);line-height:1.6}
+.arc-acts{margin-top:1rem;display:none}
+.arc-card.open .arc-acts{display:block}
+.act-row{padding:.42rem 0;border-top:1px solid rgba(181,69,53,.13);font-size:.72rem;color:var(--slate-lt);line-height:1.5}
+.act-tc{color:var(--terra);font-weight:700;margin-right:.4rem}
+.arc-toggle{margin-top:.85rem;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra)}
+
+/* ── PROFILE ────────────────────────────────────── */
+.profile-wrap{display:grid;grid-template-columns:300px 1fr;gap:3rem;align-items:start}
+.p-card{background:var(--arch);border-radius:4px;overflow:hidden;position:sticky;top:2rem;border:1px solid var(--arch-m)}
+.p-hdr{background:linear-gradient(140deg,var(--terra-d) 0%,var(--terra) 100%);padding:1.7rem;text-align:center;position:relative}
+.p-hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to bottom,transparent,rgba(26,16,8,.3))}
+.p-init{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:white;margin:0 auto .8rem;border:2px solid rgba(255,255,255,.26)}
+.p-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:white;font-style:italic;margin-bottom:.15rem;position:relative;z-index:1}
+.p-legal{font-size:.58rem;color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
+.p-ep-tag{font-size:.56rem;letter-spacing:.12em;color:rgba(255,255,255,.48);margin-top:.3rem;display:block;position:relative;z-index:1}
+.p-body{padding:1.2rem}
+.p-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--arch-m);font-size:.72rem;gap:.8rem}
+.p-row:last-child{border-bottom:none}
+.p-lbl{color:var(--arch-mu);flex-shrink:0}
+.p-val{color:var(--cream);text-align:right;font-weight:500}
+.p-val.r{color:#F0A090}.p-val.t{color:var(--teal-v)}.p-val.y{color:var(--yellow)}
+
+/* ── WARDROBE ───────────────────────────────────── */
+.wd-row{display:flex;flex-wrap:wrap;gap:.9rem;margin:1rem 0}
+.wd-item{text-align:center}
+.wd-swatch{width:42px;height:42px;border-radius:7px;border:1px solid rgba(0,0,0,.1)}
+.wd-label{font-size:.6rem;color:var(--ink-mu);margin-top:.3rem;display:block}
+.wd-x{border:2px solid var(--red) !important}
+
+/* ── CHECKLIST ──────────────────────────────────── */
+.cl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;margin-top:1.8rem}
+.cl-grp h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--terra-w);margin-bottom:.85rem;padding-bottom:.3rem;border-bottom:1px solid rgba(181,69,53,.28)}
+.ci{display:flex;gap:.65rem;padding:.42rem 0;font-size:.77rem;color:var(--ink-s);line-height:1.5;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;transition:color .15s;align-items:flex-start}
+.ci:hover{color:var(--ink)}
+.cbox{width:14px;height:14px;border:1.5px solid var(--slate);border-radius:2px;flex-shrink:0;margin-top:2px;transition:all .18s;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:transparent}
+.ci.done .cbox{background:var(--teal);border-color:var(--teal);color:white}
+.ci.done .ct{text-decoration:line-through;opacity:.4}
+
+/* ── GEAR ───────────────────────────────────────── */
+.g-tabs{display:flex;border-bottom:1px solid var(--aged);margin-bottom:1.6rem;overflow-x:auto}
+.g-tab{padding:.65rem 1.25rem;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-mu);cursor:pointer;border-bottom:2px solid transparent;transition:all .18s;font-weight:500;background:none;border-top:none;border-left:none;border-right:none;border-bottom:2px solid transparent;font-family:'Karla',sans-serif;white-space:nowrap}
+.g-tab:hover{color:var(--terra)}
+.g-tab.on{color:var(--terra);border-bottom-color:var(--terra)}
+.g-pane{display:none}.g-pane.on{display:block}
+.placeholder-notice{background:rgba(181,69,53,.07);border:1px dashed rgba(181,69,53,.35);border-radius:4px;padding:1.2rem 1.4rem;text-align:center;color:var(--ink-mu);font-size:.8rem;margin:.5rem 0}
+.placeholder-notice strong{color:var(--terra);display:block;margin-bottom:.3rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* ── DATA TABLE ─────────────────────────────────── */
+.dt{width:100%;border-collapse:collapse}
+.dt th{text-align:left;font-size:.58rem;letter-spacing:.17em;text-transform:uppercase;color:var(--cream);background:var(--arch-m);padding:.65rem .9rem;font-weight:700}
+.dt td{padding:.65rem .9rem;font-size:.77rem;color:var(--ink-s);border-bottom:1px solid var(--aged);vertical-align:top;line-height:1.5}
+.dt tr:nth-child(even) td{background:var(--terra-b)}
+.dt tr:hover td{background:rgba(181,69,53,.04)}
+.dt td:first-child{font-weight:600;color:var(--ink)}
+.tdq{text-align:center;color:var(--terra);font-weight:700}
+
+/* ── SCHEMATIC ──────────────────────────────────── */
+.schematic{background:var(--arch);border:1px solid var(--arch-m);border-radius:4px;padding:2rem;font-family:'Courier New',monospace;font-size:.74rem;line-height:1.9;color:var(--slate-lt);position:relative;overflow:hidden;margin:1.6rem 0}
+.schematic::before{content:'LIGHTING DIAGRAM · GOLDEN HOUR · COMODOR STREET ARCH';position:absolute;top:.65rem;right:.9rem;font-family:'Karla',sans-serif;font-size:.5rem;letter-spacing:.18em;color:var(--arch-s);text-transform:uppercase}
+.sw{color:var(--terra-w);font-weight:bold}.sc{color:#7EC8E3}.ss{color:var(--terra)}.st{color:var(--teal-v)}.sd{color:var(--arch-s)}.sy{color:var(--yellow)}
+.sch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:1.3rem}
+.sch-box{background:rgba(181,69,53,.08);border:1px solid rgba(181,69,53,.2);padding:1rem;border-radius:4px}
+.sch-box.t{background:rgba(45,122,94,.07);border-color:rgba(45,122,94,.18)}
+.sch-box.c{background:rgba(138,144,152,.07);border-color:rgba(138,144,152,.18)}
+.sb-lbl{font-size:.56rem;letter-spacing:.17em;text-transform:uppercase;color:var(--terra);margin-bottom:.3rem;font-weight:700}
+.sch-box.t .sb-lbl{color:var(--teal-v)}.sch-box.c .sb-lbl{color:var(--slate)}
+.sb-val{font-size:.76rem;color:var(--slate-lt);line-height:1.55}
+
+/* ── TIMELINE ───────────────────────────────────── */
+.tl{position:relative;padding-left:1.7rem;margin-top:1.7rem}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--terra),var(--teal),transparent)}
+.tl-i{position:relative;padding:0 0 1.3rem 1.7rem}
+.tl-i::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--terra);border:2px solid var(--cream);transition:transform .18s}
+.tl-i:hover::before{transform:scale(1.35)}
+.tl-i.tp::before{background:var(--teal)}
+.tl-i.key::before{background:var(--yellow);border-color:var(--cream)}
+.tt{font-size:.63rem;font-weight:700;color:var(--terra);letter-spacing:.09em;margin-bottom:.15rem}
+.tl-i.tp .tt{color:var(--teal)}.tl-i.key .tt{color:var(--yellow)}
+.tx{font-size:.79rem;color:var(--ink-s);line-height:1.5}
+
+/* ── CALLOUTS ───────────────────────────────────── */
+.call{padding:1rem 1.3rem;border-left:3px solid var(--terra);background:rgba(181,69,53,.055);border-radius:0 4px 4px 0;margin:.85rem 0}
+.call.t{border-left-color:var(--teal);background:rgba(45,122,94,.055)}
+.call.y{border-left-color:var(--yellow);background:rgba(212,168,32,.055)}
+.call.dk{background:rgba(181,69,53,.08);border-left-color:var(--terra-w)}
+.cl{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--terra);margin-bottom:.3rem}
+.call.t .cl{color:var(--teal)}.call.y .cl{color:var(--yellow)}
+.cv{font-size:.79rem;color:var(--ink-s);line-height:1.6}
+.call.t .cv,.sec-ink .cv{color:var(--slate-lt)}
+
+/* ── SOUND ──────────────────────────────────────── */
+.sl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--aged);border:1px solid var(--aged);margin:1.7rem 0}
+.sl{background:var(--cream);padding:1.3rem;position:relative;overflow:hidden;transition:background .25s}
+.sl:hover{background:var(--terra-b)}
+.sl-bg{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:rgba(181,69,53,.08);position:absolute;top:-.2rem;right:.8rem;line-height:1}
+.sl-ttl{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:700;margin-bottom:.3rem}
+.sl-d{font-size:.77rem;color:var(--ink-s);line-height:1.6}
+.sl-impl{font-size:.68rem;color:var(--teal);margin-top:.3rem;font-style:italic}
+
+/* ── EDIT PRINCIPLES ────────────────────────────── */
+.principles{display:flex;flex-direction:column;border:1px solid var(--aged);border-radius:4px;overflow:hidden;margin:1.7rem 0}
+.pi{display:flex;align-items:flex-start;gap:1.3rem;padding:1.3rem;border-bottom:1px solid var(--aged);transition:background .18s;cursor:default}
+.pi:last-child{border-bottom:none}
+.pi:hover{background:var(--terra-b)}
+.pi-n{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:700;flex-shrink:0;width:125px;margin-top:.1rem}
+.pi-rule{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-style:italic;color:var(--ink);margin-bottom:.22rem;line-height:1.4}
+.pi-why{font-size:.75rem;color:var(--ink-s);line-height:1.5}
+
+/* ── DELIVERABLES ───────────────────────────────── */
+.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin:1.7rem 0}
+.del-card{border:1px solid var(--aged);border-radius:4px;padding:1rem;transition:border-color .18s,transform .18s}
+.del-card:hover{border-color:var(--terra);transform:translateY(-2px)}
+.dc-type{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.3rem;font-weight:700}
+.dc-name{font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:.38rem}
+.dc-spec{font-size:.69rem;color:var(--ink-mu);line-height:1.5}
+
+/* ── GRADE ──────────────────────────────────────── */
+.grade-strip{display:flex;height:6px;border-radius:4px;overflow:hidden;margin:1.4rem 0 .35rem}
+.gs{flex:1}
+
+/* ── REFS ───────────────────────────────────────── */
+.ref-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin:1.6rem 0}
+.ref-card{background:var(--arch);border-radius:4px;padding:1rem 1.2rem;border-left:3px solid var(--terra);transition:border-color .18s}
+.ref-card:hover{border-left-color:var(--teal-v)}
+.rf{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:700;color:var(--cream);font-style:italic;margin-bottom:.3rem}
+.rw{font-size:.65rem;color:var(--terra-w);margin-bottom:.25rem;font-weight:600}
+.rh{font-size:.72rem;color:var(--arch-mu);line-height:1.5}
+
+/* ── REVEAL ─────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+@keyframes fup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+@media(max-width:880px){
+  .sb{transform:translateX(-100%)}.sb.open{transform:translateX(0)}
+  .mb-btn{display:flex}.main{margin-left:0}.sec{padding:2.5rem 1.5rem}
+  .hero{padding:0 1.5rem 2.5rem}.arc-grid{grid-template-columns:1fr;margin:2rem 0}
+  .arc-card{border-right:none;border-bottom:1px solid rgba(181,69,53,.14)}
+  .cl-grid,.sl-grid,.ref-grid,.del-grid,.sch-grid,.loc-compare{grid-template-columns:1fr}
+  .profile-wrap{grid-template-columns:1fr}.prog{left:0}
+  .shared-notice{padding:.5rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="prog"><div class="prog-f" id="pf"></div></div>
+<button class="mb-btn" id="mbtn" aria-label="Menu"><span></span><span></span><span></span></button>
+
+<!-- ════════════════ SIDEBAR ════════════════ -->
+<aside class="sb" id="sb">
+  <div class="sb-top">
+    <span class="sb-series">Production Bible</span>
+    <div class="sb-doc">Jamestown<br>Glory Days</div>
+    <span class="sb-year">2026 · Jamestown, Accra, Ghana</span>
+  </div>
+  <div class="sb-ep">
+    <span class="ep-badge">E 002</span>
+    <div>
+      <span class="ep-name">Bla Quarter</span>
+      <span class="ep-detail">Daniel Nii Kwartey Quarter · Comodor St.</span>
+    </div>
+  </div>
+  <nav class="nav-wrap">
+    <div class="nav-grp">Episode-Specific</div>
+    <div class="ni active" data-s="hero" onclick="go('hero')"><span class="ni-ico">◆</span>Cover</div>
+    <div class="ni" data-s="location" onclick="go('location')"><span class="ni-ico">◎</span>Location Analysis</div>
+    <div class="ni" data-s="subject" onclick="go('subject')"><span class="ni-ico">◉</span>Subject Profile</div>
+    <div class="ni" data-s="youth" onclick="go('youth')"><span class="ni-ico">▲</span>Youth Impact</div>
+    <div class="ni" data-s="arc" onclick="go('arc')"><span class="ni-ico">▷</span>Three-Part Arc</div>
+    <div class="ni" data-s="wardrobe" onclick="go('wardrobe')"><span class="ni-ico">◈</span>Wardrobe</div>
+    <div class="nav-grp">Shared Sections <span class="nav-tag">All Episodes</span></div>
+    <div class="ni shared" data-s="checklist" onclick="go('checklist')"><span class="ni-ico">☑</span>Checklist</div>
+    <div class="ni shared" data-s="gear" onclick="go('gear')"><span class="ni-ico">◧</span>Camera & Gear</div>
+    <div class="ni shared" data-s="schematic" onclick="go('schematic')"><span class="ni-ico">◐</span>Light Schematic</div>
+    <div class="ni shared" data-s="timeline" onclick="go('timeline')"><span class="ni-ico">◷</span>Shoot Day</div>
+    <div class="ni shared" data-s="sound" onclick="go('sound')"><span class="ni-ico">♫</span>Sound Design</div>
+    <div class="ni shared" data-s="grade" onclick="go('grade')"><span class="ni-ico">◑</span>Colour Grade</div>
+    <div class="ni shared" data-s="edit" onclick="go('edit')"><span class="ni-ico">◫</span>Editorial</div>
+    <div class="ni shared" data-s="deliver" onclick="go('deliver')"><span class="ni-ico">◻</span>Deliverables</div>
+  </nav>
+  <div class="sb-foot"><strong>Jamestown Glory Days</strong> · 2026<br>Confidential — Production Use Only<br>© 2026 All Rights Reserved</div>
+</aside>
+
+<!-- ════════════════ MAIN ════════════════════ -->
+<main class="main">
+
+<!-- ── HERO ──────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="h-bg"></div><div class="h-tex"></div><div class="h-arch"></div><div class="h-acc"></div>
+  <div class="h-ep-label">Episode 002 · Jamestown Glory Days · 2026</div>
+  <div class="h-ep-num">002</div>
+  <div class="h-eye">Production Bible · Jamestown, Accra, Ghana</div>
+  <h1 class="h-title"><em>Jamestown</em><span class="days">Glory Days</span></h1>
+  <p class="h-sub">Episode 002 — Bla Quarter · Comodor Street, Lighthouse Quarter</p>
+  <div class="h-tagline">[ Your series tagline will appear here — share it and I'll update all bibles ]</div>
+  <div class="h-meta">
+    <span class="htag">Golden Hour · Terracotta Arch</span>
+    <span class="htag">BMPCC 6K · Lumix S5 · Canon 90D</span>
+    <span class="htag t">Ga Language · Subtitled</span>
+    <span class="htag y">Royalty Dance · Cultural Custodian</span>
+    <span class="htag t">Calm on Camera · High Comfort</span>
+  </div>
+  <div class="h-scroll"><div class="h-sline"></div><span>Scroll</span></div>
+</section>
+
+<!-- ── LOCATION ANALYSIS ─── [EPISODE-SPECIFIC] -->
+<section class="sec" id="location">
+  <div class="rv">
+    <div class="sec-eye">Episode 002 — Location</div>
+    <h2 class="sec-title">New Location, New Story</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">Episode 002 shoots at a completely different location from Episode 001. The terracotta compound arch on Comodor Street is an interior world — it speaks of compound life, community, shelter, and the layered history of Jamestown's residential architecture. This must be reflected in how you light and frame the interview.</p>
+  </div>
+  <div class="loc-compare rv d1">
+    <div class="loc-card e001">
+      <div class="loc-ep">Episode 001 — Maame Osofo</div>
+      <div class="loc-title">Owuman Wall — Street-Facing, Ochre</div>
+      <div class="loc-detail">Exterior. Public-facing. Golden sun rakes across from the west. Teal woodwork provides complementary accent. Open sky. The world of the trader, visible and present in her neighbourhood.</div>
+    </div>
+    <div class="loc-card e002">
+      <div class="loc-ep">Episode 002 — Bla Quarter</div>
+      <div class="loc-title">Comodor Street Arch — Interior Compound, Terracotta</div>
+      <div class="loc-detail">Semi-interior. The arch frames a deeper darkness behind. The terracotta wall is more saturated, more dramatic. Cracked tile floor. Drainpipe. Yellow jerrycans as found colour. A compound's private threshold — where family life began and ended each day.</div>
+    </div>
+  </div>
+  <div class="rv d2">
+    <div class="call y"><div class="cl">Location Opportunity — The Arch Frame</div><div class="cv" style="color:var(--ink-s);">Position Bla Quarter seated or standing just inside the arch mouth — not in front of it. This frames him in the threshold between the private world (the dark compound behind) and the public street. The arch becomes his frame within your frame. It is an extraordinary natural compositional device that no amount of production design can manufacture.</div></div>
+    <div class="call t" style="margin-top:.9rem;"><div class="cl">Colour Palette — What Changes From E001</div><div class="cv" style="color:var(--ink-s);">The terracotta red wall is deeper, more saturated, and warmer than E001's ochre. The grade LUT base stays consistent — but the secondary grade for this episode will pull the reds slightly and let the deep arch shadow anchor the frame. The yellow jerrycans are a found accent; if they are present on shoot day, don't move them — they add life.</div></div>
+  </div>
+</section>
+
+<!-- ── SUBJECT PROFILE ──────── [EPISODE-SPECIFIC] -->
+<section class="sec sec-ink" id="subject">
+  <div class="rv">
+    <div class="sec-eye">Episode 002 — Subject Profile</div>
+    <h2 class="sec-title">Bla Quarter</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="profile-wrap rv d1">
+    <div class="p-card">
+      <div class="p-hdr">
+        <div class="p-init">BQ</div>
+        <div class="p-name">Bla Quarter</div>
+        <div class="p-legal">Daniel Nii Kwartey Quarter</div>
+        <span class="p-ep-tag">Jamestown Glory Days · Episode 002</span>
+      </div>
+      <div class="p-body">
+        <div class="p-row"><span class="p-lbl">DOB</span><span class="p-val y">1st July 1960 (age 65)</span></div>
+        <div class="p-row"><span class="p-lbl">Location</span><span class="p-val">Comodor Street, Town E</span></div>
+        <div class="p-row"><span class="p-lbl">Landmark</span><span class="p-val r">Jamestown Lighthouse quarter</span></div>
+        <div class="p-row"><span class="p-lbl">Roots</span><span class="p-val y">Born & raised Jamestown</span></div>
+        <div class="p-row"><span class="p-lbl">Occupation</span><span class="p-val">Powder Factory · Judiciary Caretaker</span></div>
+        <div class="p-row"><span class="p-lbl">Gender</span><span class="p-val">Male</span></div>
+        <div class="p-row"><span class="p-lbl">Language</span><span class="p-val t">Ga — full interview</span></div>
+        <div class="p-row"><span class="p-lbl">Camera</span><span class="p-val t">Calm & Reserved · HIGH comfort</span></div>
+        <div class="p-row"><span class="p-lbl">Eyesight</span><span class="p-val r">Physical consideration noted</span></div>
+        <div class="p-row"><span class="p-lbl">Faith</span><span class="p-val">Methodist Church</span></div>
+        <div class="p-row"><span class="p-lbl">Education</span><span class="p-val">Mamprobi Sempe 1</span></div>
+        <div class="p-row"><span class="p-lbl">Family</span><span class="p-val">8 siblings · 1 mother · 1 father</span></div>
+        <div class="p-row"><span class="p-lbl">Mother</span><span class="p-val">John Nii Kwartey Quartee</span></div>
+        <div class="p-row"><span class="p-lbl">Father</span><span class="p-val">Susuana Annan</span></div>
+        <div class="p-row"><span class="p-lbl">Lineage</span><span class="p-val y">Kitson Mills family — Teachers, Educationalists</span></div>
+        <div class="p-row"><span class="p-lbl">Archive</span><span class="p-val r">Sankofa books reference</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="body-t" style="margin-bottom:1.3rem;">Born on 1st July 1960 on Comodor Street — within sight of the Jamestown Lighthouse — Bla Quarter has spent 65 years in Town E, one of Jamestown's most historically layered quarters. His working life bridged industrial labour at the powder factory and institutional service at the Judiciary. His family, the Kitson Mills, were teachers and educationalists — documented in the Sankofa books. That lineage makes him not just a witness to Jamestown's glory days, but a product of its intellectual tradition.</p>
+      <div class="call y"><div class="cl">Why This Voice Matters</div><div class="cv" style="color:var(--ink-s);">The Jamestown Royalty Dance is more than performance — it is a living expression of the history, identity and resilience of the Ga people. Bla Quarter's connection to this tradition makes him one of its cultural custodians. The dancers, elders and youth connected to the Royalty Dance all need their stories told. This episode begins that telling.</div></div>
+      <div class="call t" style="margin-top:.8rem;"><div class="cl">Key Stories to Draw Out</div><div class="cv" style="color:var(--slate-lt);">
+        1. The Jamestown Royalty Dance — its meaning, its history, who held it alive<br>
+        2. Life at the powder factory — what that industrial work looked like<br>
+        3. The Judiciary as a caretaker — the institutional Jamestown he served<br>
+        4. The Kitson Mills family — teachers and masters in the Sankofa record<br>
+        5. What Town E (Lighthouse quarter) looked and felt like in its glory days
+      </div></div>
+      <div class="call" style="margin-top:.8rem;"><div class="cl">Physical Consideration — Eyesight</div><div class="cv" style="color:var(--ink-s);">Eyesight is noted as a physical consideration. Ensure interview position does not require him to look into direct sunlight or a bright light source. The arch location naturally faces away from direct sun — use this. Confirm font size on any printed materials given to him. Have the production manager check in privately before the shoot.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── YOUTH IMPACT ───────────── [EPISODE-SPECIFIC] -->
+<section class="sec" id="youth">
+  <div class="rv">
+    <div class="sec-eye">Jamestown Glory Days — Mission</div>
+    <h2 class="sec-title">Youth Impact Framework</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">Bla Quarter's story carries a specific and powerful message for the youth of Jamestown — that cultural identity is not inherited passively. It is carried, practiced, and handed forward deliberately.</p>
+  </div>
+  <div class="youth-banner rv d1">
+    <div class="yb-label">Episode 002 · Youth Mission Statement</div>
+    <div class="yb-title">The Dance Is the Archive. You Are the Dancer.</div>
+    <div class="yb-text">The Jamestown Royalty Dance is not a relic. It is a living document — written in the bodies of those who practice it and passed forward only through human chain. Bla Quarter's family, the Kitson Mills, were teachers and educationalists. His people understood that knowledge must be transmitted deliberately, or it is lost. The youth of Jamestown are the next link in that chain — for the Royalty Dance, for Ga cultural identity, and for the intellectual tradition of a community that has always known the value of learning. This episode asks them: what are you carrying forward?</div>
+    <div class="yb-pillars">
+      <span class="yb-pill">Cultural Identity</span>
+      <span class="yb-pill">Ga Heritage</span>
+      <span class="yb-pill">The Royalty Dance</span>
+      <span class="yb-pill">Educational Lineage</span>
+      <span class="yb-pill">Community Custodianship</span>
+      <span class="yb-pill">Lighthouse Quarter Pride</span>
+    </div>
+  </div>
+  <div class="rv d2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem;">
+    <div class="call t"><div class="cl">The Culture Thread</div><div class="cv" style="color:var(--ink-s);">Ask Bla Quarter to describe the Royalty Dance as if the viewer has never seen it — its movements, its sounds, its occasion, its meaning. This description becomes the episode's centrepiece. Let him use his hands and body if he begins to demonstrate — keep cameras rolling.</div></div>
+    <div class="call t"><div class="cl">The Education Thread</div><div class="cv" style="color:var(--ink-s);">The Kitson Mills family are in the Sankofa books as teachers and educationalists. This is documented Jamestown intellectual heritage. Ask him what his family believed about education — and what that meant for the children of his community.</div></div>
+    <div class="call"><div class="cl">End Card Direction</div><div class="cv" style="color:var(--ink-s);">Final question: "What do you want the young people of Jamestown to know about the Royalty Dance — and about who they are?" His answer is the episode's closing frame. Direct address to youth. Keep cameras rolling after he finishes.</div></div>
+    <div class="call"><div class="cl">Archive Opportunity</div><div class="cv" style="color:var(--ink-s);">The Sankofa books reference is significant. If accessible, footage of or reference to those documents as B-roll would be extraordinary. Ask Bla Quarter if he knows where they are held. This is a research thread worth pursuing before shoot day.</div></div>
+  </div>
+</section>
+
+<!-- ── THREE-PART ARC ────────── [EPISODE-SPECIFIC] -->
+<section class="sec sec-ink" id="arc">
+  <div class="rv">
+    <div class="sec-eye t">Episode 002 — Story Arc</div>
+    <h2 class="sec-title">Three-Part Mini-Arc</h2>
+    <div class="sec-rule t"></div>
+    <p class="body-t">Bla Quarter's arc follows the series template — Past, Faith/Family/Community, Legacy/Youth — but shaped entirely around his specific stories: the Royalty Dance as the spine, the Kitson Mills educational heritage as the undertow, and the Lighthouse quarter as the setting.</p>
+  </div>
+
+  <div class="logline">A man born in the shadow of the Lighthouse, who spent his working life between the powder factory and the palace of justice — and carried in his body a dance that is older than either.</div>
+
+  <div class="arc-grid rv d1">
+    <div class="arc-card" id="arc1" onclick="toggleArc('arc1')">
+      <div class="arc-n">I</div>
+      <div class="arc-lbl">Act 1 — The Past</div>
+      <div class="arc-title">The Glory Days Stories</div>
+      <div class="arc-dur">~26 minutes</div>
+      <div class="arc-desc">Comodor Street in its prime. The Lighthouse as landmark. The powder factory. Town E when Jamestown was still at its height. Who were the people of this quarter and how did they live?</div>
+      <div class="arc-acts">
+        <div class="act-row"><span class="act-tc">0:00–7:00</span>Arrival — born 1st July 1960, Comodor Street. What was this street on that day and through his childhood?</div>
+        <div class="act-row"><span class="act-tc">7:00–16:00</span>The Lighthouse quarter — the geography of Town E, its people, its rhythms, its pride.</div>
+        <div class="act-row"><span class="act-tc">16:00–23:00</span>Working life — the powder factory and the Judiciary. Two very different worlds in one Jamestown life.</div>
+        <div class="act-row"><span class="act-tc">23:00–26:00</span>Close — "This was Jamestown." Wide shot of the arch. Silence. Cut to black.</div>
+      </div>
+      <div class="arc-toggle">Expand acts ↓</div>
+    </div>
+    <div class="arc-card" id="arc2" onclick="toggleArc('arc2')">
+      <div class="arc-n">II</div>
+      <div class="arc-lbl">Act 2 — Faith, Family & Community</div>
+      <div class="arc-title">The Dance and the Church</div>
+      <div class="arc-dur">~30 minutes</div>
+      <div class="arc-desc">The Jamestown Royalty Dance. The Methodist Church. The Kitson Mills family of teachers and educationalists. How faith, family tradition and cultural practice held the community together across generations.</div>
+      <div class="arc-acts">
+        <div class="act-row"><span class="act-tc">0:00–10:00</span>The Royalty Dance — what it is, where it comes from, who carries it. Let him describe and demonstrate if he begins to move.</div>
+        <div class="act-row"><span class="act-tc">10:00–20:00</span>The Kitson Mills — teachers and masters documented in the Sankofa books. What did education mean in his family?</div>
+        <div class="act-row"><span class="act-tc">20:00–27:00</span>Methodist Church and community structure — how faith organised Jamestown life.</div>
+        <div class="act-row"><span class="act-tc">27:00–30:00</span>Close — "This is what held us." Devotional underscore rises under the Royalty Dance theme.</div>
+      </div>
+      <div class="arc-toggle">Expand acts ↓</div>
+    </div>
+    <div class="arc-card" id="arc3" onclick="toggleArc('arc3')">
+      <div class="arc-n">III</div>
+      <div class="arc-lbl">Act 3 — Legacy & Youth</div>
+      <div class="arc-title">The Message Forward</div>
+      <div class="arc-dur">~28 minutes</div>
+      <div class="arc-desc">What has changed in Town E and in Jamestown. What the Royalty Dance means for the next generation. What Bla Quarter wants the youth to know, carry, and build on. His direct address to the future.</div>
+      <div class="arc-acts">
+        <div class="act-row"><span class="act-tc">0:00–9:00</span>What Jamestown has lost — the specific changes he has witnessed in Town E and the Lighthouse quarter.</div>
+        <div class="act-row"><span class="act-tc">9:00–20:00</span>The Royalty Dance today — who is carrying it? Who should be? What happens if it stops?</div>
+        <div class="act-row"><span class="act-tc">20:00–26:00</span>The family educational legacy — what the Kitson Mills believed that the youth of today must hear.</div>
+        <div class="act-row"><span class="act-tc">26:00–28:00</span>Final close — direct address. "You are the dancer now." Hold on face 12 seconds. Fade to black.</div>
+      </div>
+      <div class="arc-toggle">Expand acts ↓</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WARDROBE ────────────────── [EPISODE-SPECIFIC] -->
+<section class="sec sec-parch" id="wardrobe">
+  <div class="rv">
+    <div class="sec-eye">Episode 002 — Wardrobe Direction</div>
+    <h2 class="sec-title">Colour Separation Strategy</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">The terracotta red wall is deep and saturated — significantly different from E001's ochre. The challenge is to find colours that separate cleanly from a warm, dark red without clashing. Crucially, as a male subject, wardrobe options differ from E001.</p>
+  </div>
+  <div class="rv d1">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--terra-d);margin:1.4rem 0 .8rem;">Works — Strong Separation Against Terracotta Red</h3>
+    <div class="wd-row">
+      <div class="wd-item"><div class="wd-swatch" style="background:#1A3A5C;"></div><span class="wd-label">Deep navy</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#0F6E56;"></div><span class="wd-label">Deep teal</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#F5EED8;border:1px solid #ccc;"></div><span class="wd-label">Cream / white</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#2A2A2A;"></div><span class="wd-label">Charcoal</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#3B3B2A;"></div><span class="wd-label">Dark olive</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#5C4A8A;"></div><span class="wd-label">Deep purple</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#4A6A3A;"></div><span class="wd-label">Forest green</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#8A5C2A;"></div><span class="wd-label">Dark tan</span></div>
+    </div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--red);margin:1.4rem 0 .8rem;">Avoid — Clashes or Merges with Terracotta Wall</h3>
+    <div class="wd-row">
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#C04828;"></div><span class="wd-label" style="color:var(--red);">Red / rust</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#D06050;"></div><span class="wd-label" style="color:var(--red);">Coral / salmon</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#E8A878;"></div><span class="wd-label" style="color:var(--red);">Orange / peach</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#C8A878;"></div><span class="wd-label" style="color:var(--red);">Warm brown</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#E8B84B;"></div><span class="wd-label" style="color:var(--red);">Bright yellow</span></div>
+    </div>
+    <div class="call" style="margin-top:1.2rem;"><div class="cl">Cultural Wardrobe Note</div><div class="cv" style="color:var(--ink-s);">As a male elder from the Ga community connected to the Royalty Dance, Bla Quarter may own traditional Ga garments — kente or smock in appropriate colours. If he has a garment associated with the dance itself, discuss with him whether it is appropriate to wear during the interview. The connection to the Royalty Dance worn on his body would be a powerful visual statement. Do not push — let him decide.</div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SHARED SECTIONS
+══════════════════════════════════════════════ -->
+
+<!-- ── CHECKLIST ─────── [SHARED] -->
+<div class="shared-strip" id="checklist"></div>
+<div class="shared-notice">This section is shared across all Jamestown Glory Days episodes. Update once — applies to all.</div>
+<section class="sec" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Pre-Production</div>
+    <h2 class="sec-title">Production Checklist</h2>
+    <div class="sec-rule t"></div>
+    <p class="body-t">E002-specific notes: confirm eyesight consideration with production manager before shoot. Verify arch lighting in advance — interior compound has different ambient light behaviour than E001's street-facing wall.</p>
+  </div>
+  <div class="cl-grid rv d1">
+    <div class="cl-grp">
+      <h3>Subject Preparation</h3>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Bio sheet distributed to all crew</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Interview questions translated into Ga</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Ga-fluent director confirmed on crew</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Advance rapport visit done (min. 3 days before)</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Wardrobe colour consultation — subject chose garment</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Transport arranged to location</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Eyesight check confirmed with PM — no bright lights directed at eyes</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Trusted companion cleared to be present off-camera</span></div>
+    </div>
+    <div class="cl-grp">
+      <h3>Location — Comodor Street Arch</h3>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Recce done — arch and compound condition confirmed</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Compound owner and neighbourhood elder — permissions secured</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Interior ambient light test — arch facing direction noted</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Noise test at golden hour — ambient bed recorded</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Electrical access for LED panel</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Weather contingency plan confirmed</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Security / camera watch assigned</span></div>
+    </div>
+    <div class="cl-grp">
+      <h3>Camera & Sound</h3>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">A-Cam — cards ×3, batteries ×6, lenses confirmed</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">B-Cam — log profile activated, cards, 85mm mounted</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Stills camera — RAW enabled, portrait lens, cards</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Primary boom mic in blimp + windjammer</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Field recorder — levels preset, headphones ×2</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Ambient recorder staged and running independently</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Colour checker passport — both cameras</span></div>
+    </div>
+    <div class="cl-grp">
+      <h3>Lighting & Safety</h3>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">LED bi-colour key — charged and gelled</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">120cm+ reflector (5-in-1) — silver side confirmed</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">CTO gel set — full, half, quarter labelled</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Sandbags ×4 minimum — all stands weighted</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">First aid kit on set</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Emergency contacts laminated — every crew member</span></div>
+      <div class="ci" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Backup drives ×2 — double backup protocol</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GEAR ──────────────── [SHARED] -->
+<div class="shared-strip" id="gear"></div>
+<div class="shared-notice">Equipment list is a placeholder. Update with confirmed kit when available — applies to all episodes.</div>
+<section class="sec sec-parch" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label t">Equipment</div>
+    <h2 class="sec-title">Camera & Gear Manifest</h2>
+    <div class="sec-rule t"></div>
+  </div>
+  <div class="g-tabs rv d1">
+    <button class="g-tab on" onclick="sg('bmpcc',this)">A-Cam — BMPCC 6K</button>
+    <button class="g-tab" onclick="sg('lumix',this)">B-Cam — Lumix S5</button>
+    <button class="g-tab" onclick="sg('canon',this)">Stills — Canon 90D</button>
+    <button class="g-tab" onclick="sg('light',this)">Lighting</button>
+    <button class="g-tab" onclick="sg('snd',this)">Sound</button>
+    <button class="g-tab" onclick="sg('misc',this)">Accessories</button>
+  </div>
+  <div class="g-pane on" id="gp-bmpcc"><div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong>Replace with your actual BMPCC 6K package when confirmed.</div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th style="width:52px;text-align:center">Qty</th></tr></thead><tbody>
+      <tr><td>Blackmagic Pocket Cinema Camera 6K</td><td>Primary interview — A-cam. Arch location will require exposure monitoring for the dark interior behind subject.</td><td class="tdq">—</td></tr>
+      <tr><td>CFast 2.0 cards 256GB</td><td>BRAW 3:1 — 3 cards for full golden hour window</td><td class="tdq">—</td></tr>
+      <tr><td>LP-E6 batteries</td><td>6 charged minimum</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 85mm f/1.8</td><td>Hero interview lens — will compress the arch beautifully at distance</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 50mm f/1.4</td><td>Wider frame showing arch and compound entrance context</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 35mm f/2</td><td>B-roll — Comodor Street, Lighthouse, neighbourhood</td><td class="tdq">—</td></tr>
+      <tr><td>Mattebox + ND filters</td><td>Golden hour essential — 2, 3, 6 stop all on hand</td><td class="tdq">—</td></tr>
+      <tr><td>On-board monitor 7"</td><td>Critical for focus — arch interior is dark</td><td class="tdq">—</td></tr>
+      <tr><td>Heavy-duty tripod + fluid head</td><td>Locked off — zero wobble</td><td class="tdq">—</td></tr>
+    </tbody></table></div>
+  <div class="g-pane" id="gp-lumix"><div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th style="width:52px;text-align:center">Qty</th></tr></thead><tbody>
+      <tr><td>Panasonic Lumix S5</td><td>B-camera — simultaneous CU, reaction shots, B-roll</td><td class="tdq">—</td></tr>
+      <tr><td>V-Log L — activated</td><td>Confirm before shoot day</td><td class="tdq">✓</td></tr>
+      <tr><td>UHS-II SD cards 256GB</td><td>V-Log data rate demands UHS-II minimum</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 85mm f/1.8 (L-mount)</td><td>Simultaneous tight CU during interview</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 24-70mm f/2.8</td><td>B-roll flexibility</td><td class="tdq">—</td></tr>
+      <tr><td>Batteries (S5 compatible)</td><td>6 charged minimum</td><td class="tdq">—</td></tr>
+      <tr><td>Second tripod + fluid head</td><td>B-cam locked off during interview</td><td class="tdq">—</td></tr>
+    </tbody></table></div>
+  <div class="g-pane" id="gp-canon"><div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th style="width:52px;text-align:center">Qty</th></tr></thead><tbody>
+      <tr><td>Canon 90D</td><td>Social media stills + BTS — RAW only</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 50mm f/1.8</td><td>Hero portrait in arch frame — extraordinary composition potential</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 24-70mm</td><td>Location wide, Lighthouse, Comodor Street context shots</td><td class="tdq">—</td></tr>
+      <tr><td>SD cards 64GB</td><td>RAW stills — 3 minimum</td><td class="tdq">—</td></tr>
+      <tr><td>LP-E6 batteries</td><td>4 minimum</td><td class="tdq">—</td></tr>
+    </tbody></table></div>
+  <div class="g-pane" id="gp-light"><div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th style="width:52px;text-align:center">Qty</th></tr></thead><tbody>
+      <tr><td>LED bi-colour key light</td><td>E002 NOTE: arch interior may require slightly more supplemental key than E001 — ambient sun may not rake the arch face as directly</td><td class="tdq">—</td></tr>
+      <tr><td>5-in-1 reflector 120cm+</td><td>Bounce available ambient into arch shadow side</td><td class="tdq">—</td></tr>
+      <tr><td>4×4 diffusion frame</td><td>Soften key if direct sun hits arch mouth</td><td class="tdq">—</td></tr>
+      <tr><td>CTO gel set</td><td>Full, half, quarter — warm key to match ambient</td><td class="tdq">—</td></tr>
+      <tr><td>CTB gel (half stop)</td><td>Cool rim for separation</td><td class="tdq">—</td></tr>
+      <tr><td>C-stands × 2</td><td>Key and reflector arms</td><td class="tdq">—</td></tr>
+      <tr><td>Sandbags</td><td>Coastal wind still present even in compound</td><td class="tdq">—</td></tr>
+      <tr><td>Gaffer tape / grip kit</td><td>Essential flagging on natural location</td><td class="tdq">—</td></tr>
+      <tr><td>Light meter</td><td>Match A-cam and B-cam; verify key ratio</td><td class="tdq">—</td></tr>
+    </tbody></table></div>
+  <div class="g-pane" id="gp-snd"><div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th style="width:52px;text-align:center">Qty</th></tr></thead><tbody>
+      <tr><td>Field recorder (6-track)</td><td>Primary recorder — E002 arch may have slight interior reverb character; monitor carefully</td><td class="tdq">—</td></tr>
+      <tr><td>Shotgun mic (boom)</td><td>Primary dialogue — supercardioid; watch for arch reverb buildup</td><td class="tdq">—</td></tr>
+      <tr><td>Lavalier mic</td><td>Redundancy lav — chest placement, run simultaneously</td><td class="tdq">—</td></tr>
+      <tr><td>Zeppelin blimp + windjammer</td><td>Wind protection — compound may funnel coastal wind</td><td class="tdq">—</td></tr>
+      <tr><td>Boom pole 3m+</td><td>Long reach — keep mic out of arch frame</td><td class="tdq">—</td></tr>
+      <tr><td>Wireless lav system</td><td>Clean wireless chain</td><td class="tdq">—</td></tr>
+      <tr><td>Studio headphones × 2</td><td>Both boom op and recorder op monitoring</td><td class="tdq">—</td></tr>
+      <tr><td>Ambient recorder</td><td>Fixed outside arch — records Comodor Street ambient all day</td><td class="tdq">—</td></tr>
+    </tbody></table></div>
+  <div class="g-pane" id="gp-misc"><div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Notes</th><th style="width:52px;text-align:center">Qty</th></tr></thead><tbody>
+      <tr><td>Laptop + SSD drives 2TB</td><td>On-set double backup — immediately after each session</td><td class="tdq">—</td></tr>
+      <tr><td>Card readers (all formats)</td><td>Fast transfer pipeline</td><td class="tdq">—</td></tr>
+      <tr><td>Generator + fuel</td><td>Do not rely on mains power</td><td class="tdq">—</td></tr>
+      <tr><td>Colour checker passport</td><td>Both cameras at session start — terracotta wall colour temp differs from E001</td><td class="tdq">—</td></tr>
+      <tr><td>Clapper / slate</td><td>Sync A-cam and B-cam timecode</td><td class="tdq">—</td></tr>
+      <tr><td>Portable chairs</td><td>Best chair for Bla Quarter — his comfort is production value</td><td class="tdq">—</td></tr>
+      <tr><td>Umbrella / pop-up shade</td><td>Crew shade between takes</td><td class="tdq">—</td></tr>
+      <tr><td>First aid kit</td><td>On set at all times</td><td class="tdq">—</td></tr>
+      <tr><td>Emergency contact sheets</td><td>Laminated — every crew member carries one</td><td class="tdq">—</td></tr>
+    </tbody></table></div>
+</section>
+
+<!-- ── SCHEMATIC ──────────── [SHARED — E002 SPECIFIC NOTES] -->
+<div class="shared-strip" id="schematic"></div>
+<div class="shared-notice">Lighting schematic updated for E002 arch location — different from E001 open wall. Read carefully.</div>
+<section class="sec sec-ink" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye t shared-label">Golden Hour · Comodor Street Arch</div>
+    <h2 class="sec-title">Camera & Light Schematic</h2>
+    <div class="sec-rule t"></div>
+    <p class="body-t" style="margin-bottom:1.5rem;">The arch location changes the lighting challenge significantly from E001. The subject sits in a threshold — one side lit by ambient golden sun, the other falling into the deep compound shadow. This tension is the visual poetry of the shot. Do not fight it. Work with it.</p>
+  </div>
+  <div class="rv d1">
+    <div class="schematic"><span class="sw">ARCH WALL  [ terracotta red · peeling plaster · arched opening ]</span>
+                        |  DEEP SHADOW  |   <-- compound interior behind subject
+<span class="sd">                        |               |</span>
+<span class="sd">          [ RIM light ] |  [ SUBJECT ]  |  <-- seated at arch threshold</span>
+<span class="st">          LED warm      |  Bla Quarter  |</span>
+<span class="sd">          camera-right  |               |</span>
+                        v
+<span class="ss">    [ GOLDEN SUN — enters arch mouth from the west at golden hour ]</span>
+<span class="ss">    Rakes across terracotta face · subject lit from camera-left naturally</span>
+<span class="sy">    [ REFLECTOR — bounces sun back into shadow side · camera-right ]</span>
+<span class="sc">              [ A-CAM · BMPCC 6K · 85mm · f/2.2 · on sticks ]</span>
+<span class="sc">              [ B-CAM · Lumix S5  · 85mm · f/2.0 · 30° offset ]</span>
+<span class="sd">              [ KEY: expose for face — let arch shadow fall naturally ]</span>
+<span class="sd">              [ the darkness behind subject is depth, not a problem ]</span></div>
+    <div class="sch-grid">
+      <div class="sch-box"><div class="sb-lbl">E002 Key Challenge</div><div class="sb-val">High contrast — bright terracotta wall vs. deep arch shadow. Expose for the subject's face. Do not try to light the interior. The shadow is the drama.</div></div>
+      <div class="sch-box t"><div class="sb-lbl">Eyesight Consideration</div><div class="sb-val">Subject has noted eyesight consideration. Position him so no light source is in his direct eyeline. The arch naturally faces away from sun — use this. Confirm with him before rolling.</div></div>
+      <div class="sch-box c"><div class="sb-lbl">Camera Settings</div><div class="sb-val">25fps · 1/50s shutter<br>ISO 800–1600 (arch is darker)<br>ETTR — protect terracotta highlights<br>WB: ~4500K — terracotta absorbs warmth</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SHOOT DAY ──────────── [SHARED] -->
+<div class="shared-strip" id="timeline"></div>
+<div class="shared-notice">Shoot day timeline is shared — same golden hour logistics for every Jamestown Glory Days episode.</div>
+<section class="sec sec-parch" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Production</div>
+    <h2 class="sec-title">Shoot Day Run of Day</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="tl rv d1">
+    <div class="tl-i"><div class="tt">12:00</div><div class="tx">Crew call. Load all vehicles. Generator check and fuel.</div></div>
+    <div class="tl-i"><div class="tt">13:00</div><div class="tx">Arrive Comodor Street. Secure perimeter with local fixer. Unload and stage gear.</div></div>
+    <div class="tl-i"><div class="tt">13:30</div><div class="tx">A-cam and B-cam rigged on sticks. Lens mounts confirmed. Cards loaded.</div></div>
+    <div class="tl-i"><div class="tt">14:00</div><div class="tx">Lighting rough position for arch — test reflector bounce in arch mouth. Note interior light direction.</div></div>
+    <div class="tl-i"><div class="tt">14:30</div><div class="tx">Sound rig complete. Ambient recorder aimed at Comodor Street, running independently.</div></div>
+    <div class="tl-i"><div class="tt">15:00</div><div class="tx">Colour checker shot on both cameras in final subject position. WB locked. Test frame reviewed.</div></div>
+    <div class="tl-i tp"><div class="tt" style="color:var(--teal);">15:15</div><div class="tx"><strong>Subject arrives.</strong> PM greets Bla Quarter. No cameras near. Confirm eyesight comfort privately.</div></div>
+    <div class="tl-i tp"><div class="tt" style="color:var(--teal);">15:15–15:30</div><div class="tx">Off-camera rapport. Director + subject + fixer only. Tea. Let him settle naturally.</div></div>
+    <div class="tl-i"><div class="tt">15:30</div><div class="tx">Subject to arch position. Wardrobe final check. Lav mic fitted discreetly.</div></div>
+    <div class="tl-i"><div class="tt">15:35</div><div class="tx">Both cameras locked. Final light ratio confirmed. Levels set. Eyesight check — no direct light in eyeline.</div></div>
+    <div class="tl-i key"><div class="tt" style="color:var(--yellow);">15:40</div><div class="tx"><strong>ROLL.</strong> 90 seconds room tone first. Director begins Q1 in Ga.</div></div>
+    <div class="tl-i key"><div class="tt" style="color:var(--yellow);">15:40–17:00</div><div class="tx"><strong>Primary interview.</strong> All sections. If he begins to demonstrate the Royalty Dance — keep cameras rolling. Do not interrupt.</div></div>
+    <div class="tl-i"><div class="tt">17:00</div><div class="tx">Light quality check — sun below 10°. Transition to LED key supplement.</div></div>
+    <div class="tl-i key"><div class="tt" style="color:var(--yellow);">17:30</div><div class="tx"><strong>Interview wrap.</strong> Thank in Ga. Hold cameras rolling 30 seconds of post-interview silence.</div></div>
+    <div class="tl-i"><div class="tt">17:35–18:30</div><div class="tx">B-roll — Comodor Street, Lighthouse, arch detail, hands, compound interior (if permitted).</div></div>
+    <div class="tl-i"><div class="tt">18:30</div><div class="tx">Wrap. All cards to data manager. Double backup on location. Label: JGD_BlaQuarter_YYYYMMDD_CAM_Card#</div></div>
+  </div>
+  <div class="rv d2" style="margin-top:1.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;">
+    <div class="call" style="border-left-color:var(--red);background:rgba(184,48,32,.045);"><div class="cl" style="color:var(--red);">Set Discipline — Non-Negotiable</div><div class="cv">Once cameras roll: no crew speaks. No phones. No movement unless critical. Hand signals only. If Bla Quarter begins to demonstrate the Royalty Dance — absolute silence and stillness from every crew member.</div></div>
+    <div class="call t"><div class="cl">Royalty Dance Contingency</div><div class="cv" style="color:var(--ink-s);">If at any point during the interview Bla Quarter begins to physically demonstrate the dance — do not stop him, do not redirect him. Signal the stills photographer to shoot. Signal B-cam operator to widen frame. This is the episode's most valuable potential moment.</div></div>
+  </div>
+</section>
+
+<!-- ── SOUND ──────────────── [SHARED] -->
+<div class="shared-strip" id="sound"></div>
+<div class="shared-notice">Sound design philosophy is shared — same sonic architecture for every Jamestown Glory Days episode.</div>
+<section class="sec" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Post-Production</div>
+    <h2 class="sec-title">Sound Design</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">For E002 specifically: if the Royalty Dance is described or demonstrated, the sound design team must research and source authentic Royalty Dance drumming and instrumentation. This episode may require deeper ethnomusicological audio research than E001.</p>
+  </div>
+  <div class="sl-grid rv d1">
+    <div class="sl"><div class="sl-bg">1</div><div class="sl-ttl">Dialogue Bed</div><div class="sl-d">Clean, present, intimate. Boom primary; lav as emergency fill. Watch for arch reverb buildup on boom — monitor in real time.</div><div class="sl-impl">Peaks at −18dBFS; 12dB headroom. Apply gentle EQ to manage any arch reverb if needed in post.</div></div>
+    <div class="sl"><div class="sl-bg">2</div><div class="sl-ttl">Comodor Street Ambient</div><div class="sl-d">Lighthouse quarter street sounds — different character from Owuman. Fishing boat horns, coastal birds, Comodor Street daily rhythm.</div><div class="sl-impl">Independent ambient recorder running all day. This bed distinguishes E002 from E001 sonically.</div></div>
+    <div class="sl"><div class="sl-bg">3</div><div class="sl-ttl">Royalty Dance — Sound Research</div><div class="sl-d">The Royalty Dance has specific drumming and vocal traditions. Source authentic recordings or commission recording with custodians. This is the sonic centrepiece of the episode.</div><div class="sl-impl">Research before shoot day. Consult Bla Quarter himself — he may know where recordings exist.</div></div>
+    <div class="sl"><div class="sl-bg">4</div><div class="sl-ttl">Methodist Church Acoustics</div><div class="sl-d">When he speaks of the church — a subtle reverb tail opens under his voice. Different character from the Divine Healers reverb in E001.</div><div class="sl-impl">Use a Methodist church or stone building IR. Pull back as he returns to present.</div></div>
+    <div class="sl"><div class="sl-bg">5</div><div class="sl-ttl">Memory Washes</div><div class="sl-d">4–8 bar motif from series composer. The Royalty Dance theme may inform this episode's specific version of the series motif.</div><div class="sl-impl">Enters at 10% under dialogue; rises only after he stops speaking. 3–4 uses per episode maximum.</div></div>
+    <div class="sl"><div class="sl-bg">6</div><div class="sl-ttl">Silence as Design</div><div class="sl-d">If he demonstrates the Royalty Dance — after he stops, 3 seconds of absolute silence before any cut. Let the air carry it.</div><div class="sl-impl">The dance moment must breathe. Do not rush the edit away from it.</div></div>
+    <div class="sl"><div class="sl-bg">7</div><div class="sl-ttl">Series Motif — E002 Version</div><div class="sl-d">The 4-note Jamestown motif returns from E001, but in E002 it may incorporate a percussive element drawn from Royalty Dance instrumentation.</div><div class="sl-impl">Composer decision — brief early in Part II, full resolution in Part III closing.</div></div>
+    <div class="sl"><div class="sl-bg">8</div><div class="sl-ttl">Youth Address End Card</div><div class="sl-d">"You are the dancer now." — the final frame. Dry mix, full presence, no reverb. The elder is speaking directly to the viewer.</div><div class="sl-impl">Underscore fades completely. His voice alone. Then the series motif — and black.</div></div>
+  </div>
+</section>
+
+<!-- ── COLOUR GRADE ────────── [SHARED] -->
+<div class="shared-strip" id="grade"></div>
+<div class="shared-notice">Base grade philosophy is shared. E002 secondary grade notes are specific to the terracotta location.</div>
+<section class="sec sec-parch" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Post-Production</div>
+    <h2 class="sec-title">Colour Grade Direction</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">The series base LUT applies to all episodes. For E002, the secondary grade must respect the deeper terracotta reds without pushing them orange — and must handle the extreme contrast between the lit wall face and the arch interior shadow.</p>
+  </div>
+  <div class="rv d1">
+    <div style="font-size:.56rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-mu);margin:1.3rem 0 .4rem;font-weight:700;">E002 Location Palette — Terracotta Compound Arch</div>
+    <div class="grade-strip">
+      <div class="gs" style="background:#B54535"></div><div class="gs" style="background:#C85848"></div>
+      <div class="gs" style="background:#D87060"></div><div class="gs" style="background:#8A3028"></div>
+      <div class="gs" style="background:#4A1810"></div><div class="gs" style="background:#D4A820"></div>
+      <div class="gs" style="background:#8A9098"></div><div class="gs" style="background:#C8CDD4"></div>
+      <div class="gs" style="background:#3A2818"></div><div class="gs" style="background:#1A1008"></div>
+    </div>
+    <div style="font-size:.61rem;color:var(--ink-mu);margin-bottom:1.3rem;">Deep terracotta reds → arch shadow → yellow jerrycan accent → slate drainpipe → ink compound darkness</div>
+    <table class="dt">
+      <thead><tr><th>Element</th><th>Grade Target</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Skin tones</td><td style="color:var(--terra-d);">Natural — primary reference as always</td><td>Vectorscope skin tone line is the anchor. The terracotta wall is close in hue — watch carefully.</td></tr>
+        <tr><td>Terracotta wall</td><td style="color:var(--terra-d);">Deep, rich — desaturate 10–15% vs. capture</td><td>Do not push red. The wall should feel weathered and aged, not saturated. Pull slightly toward brown.</td></tr>
+        <tr><td>Arch shadow interior</td><td style="color:var(--terra-d);">Deep — do not crush blacks entirely</td><td>Keep a trace of detail in the arch interior shadows. Mystery, not void.</td></tr>
+        <tr><td>Yellow jerrycans</td><td style="color:var(--yellow);">Warm gold — a touch of desaturation</td><td>If in frame: do not clip the yellow. They are a found accent colour — treat as intentional production design.</td></tr>
+        <tr><td>Overall look</td><td style="color:var(--terra-d);">Warm, heavy, ancient — deeper than E001</td><td>E002 should feel darker and more interior than E001. Same world, different corner.</td></tr>
+        <tr><td>Series consistency</td><td style="color:var(--teal);">Same base LUT — all episodes</td><td>Secondary grade differentiates the episodes within a consistent series colour world.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── EDITORIAL ──────────── [SHARED] -->
+<div class="shared-strip" id="edit"></div>
+<div class="shared-notice">Editorial principles are shared — the same pacing philosophy applies across all Jamestown Glory Days episodes.</div>
+<section class="sec" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Post-Production</div>
+    <h2 class="sec-title">Editorial Principles</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">All series editorial principles apply to E002. Additional E002 note: if the Royalty Dance is demonstrated during interview, that sequence must be edited with extreme care — it is the most culturally significant material in the episode and must not be reduced to a brief cutaway.</p>
+  </div>
+  <div class="principles rv d1">
+    <div class="pi"><div class="pi-n">The Held Cut</div><div><div class="pi-rule">"Hold interview frames 1.5× longer than instinct says."</div><div class="pi-why">Emotion lives in the face after words end. Cutting too early wastes the most valuable footage.</div></div></div>
+    <div class="pi"><div class="pi-n">The Breath Cut</div><div><div class="pi-rule">"Cut on the exhale, not the inhale."</div><div class="pi-why">Follows the natural rhythm of speech. Cuts on exhales feel invisible to the viewer.</div></div></div>
+    <div class="pi"><div class="pi-n">The Silence Cut</div><div><div class="pi-rule">"Never cut during a pause — wait for the next word, then cut back."</div><div class="pi-why">Pauses are the subject thinking. Cutting mid-pause breaks the connection to that thought.</div></div></div>
+    <div class="pi"><div class="pi-n">Dance Sequence</div><div><div class="pi-rule">"If the Royalty Dance is demonstrated — do not cut during it. Hold for the full duration."</div><div class="pi-why">This is a living cultural document. You cannot cut the living document. Let it complete. Then hold.</div></div></div>
+    <div class="pi"><div class="pi-n">Youth End Card</div><div><div class="pi-rule">"Every episode ends with the elder's direct address to Jamestown's youth."</div><div class="pi-why">This is the series mission made explicit. It is not optional. It is the reason we are making this.</div></div></div>
+    <div class="pi"><div class="pi-n">Music Entry</div><div><div class="pi-rule">"Music enters at 10% under dialogue and rises only after the subject stops speaking."</div><div class="pi-why">Music must never compete with the elder's voice. His words are primary.</div></div></div>
+    <div class="pi"><div class="pi-n">Episode Endings</div><div><div class="pi-rule">"Every episode ends on minimum 8 seconds of black."</div><div class="pi-why">Allow the audience to sit with what they heard before anything else demands their attention.</div></div></div>
+  </div>
+</section>
+
+<!-- ── DELIVERABLES ────────── [SHARED] -->
+<div class="shared-strip" id="deliver"></div>
+<div class="shared-notice">Deliverables and release strategy are shared — same output spec for every episode.</div>
+<section class="sec sec-parch" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Release</div>
+    <h2 class="sec-title">Deliverables & Strategy</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="del-grid rv d1">
+    <div class="del-card"><div class="dc-type">Master</div><div class="dc-name">4K Broadcast Master</div><div class="dc-spec">3840×2160 · ProRes 4444 or H.265 · 25fps · Archival format per episode</div></div>
+    <div class="del-card"><div class="dc-type">Streaming</div><div class="dc-name">IMF Package</div><div class="dc-spec">SMPTE ST 2067 · Full audio mix · Subtitles in spec · DCI-P3 colour reference</div></div>
+    <div class="del-card"><div class="dc-type">Subtitles</div><div class="dc-name">Translation Files</div><div class="dc-spec">SRT + VTT · Human translator only · Translation notes file included</div></div>
+    <div class="del-card"><div class="dc-type">Broadcast</div><div class="dc-name">H.264 Screener</div><div class="dc-spec">1920×1080 · H.264 · 25fps · AAC 48kHz · Festival and broadcaster submissions</div></div>
+    <div class="del-card"><div class="dc-type">Social · Instagram</div><div class="dc-name">90-Second Vertical</div><div class="dc-spec">9:16 · 1080×1920px · Key cultural moment or dance reference · Subtitled</div></div>
+    <div class="del-card"><div class="dc-type">Social · YouTube</div><div class="dc-name">3-Minute Teaser</div><div class="dc-spec">16:9 · 1920×1080px · Drives audience to full episode</div></div>
+    <div class="del-card"><div class="dc-type">Social · TikTok</div><div class="dc-name">60-Second Vertical</div><div class="dc-spec">9:16 · Youth-facing hook · His most striking line · Subtitled</div></div>
+    <div class="del-card"><div class="dc-type">Photography</div><div class="dc-name">Press Kit Stills</div><div class="dc-spec">20 selects · 300 DPI TIF · Hero portrait in arch · Location · BTS · Hands</div></div>
+    <div class="del-card"><div class="dc-type">Community</div><div class="dc-name">Jamestown Premiere</div><div class="dc-spec">E002 premieres in Jamestown. Consider inviting Royalty Dance custodians to the screening.</div></div>
+  </div>
+  <div style="margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid var(--aged);text-align:center;" class="rv d3">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--ink-s);max-width:600px;margin:0 auto .8rem;">"The Royalty Dance is a living document. Bla Quarter is one of its pages. This film is how that page survives."</p>
+    <div style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--terra-d);">Episode 002 Production Philosophy · Jamestown Glory Days · 2026</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--arch);padding:2.2rem 4.5rem;border-top:1px solid var(--arch-m);">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--cream);margin-bottom:.2rem;">Jamestown Glory Days <span style="color:var(--terra);font-style:italic;">· Episode 002 · Bla Quarter</span></div>
+      <div style="font-size:.6rem;color:var(--arch-mu);letter-spacing:.09em;text-transform:uppercase;">Production Bible · 2026 · Comodor Street, Jamestown, Accra</div>
+    </div>
+    <div style="text-align:right;font-size:.65rem;color:var(--arch-s);line-height:1.7;">Confidential — Production Use Only<br>New episode bibles generated as subjects are added<br>© 2026 All Rights Reserved</div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+function go(id){const e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('sb').classList.remove('open')}
+document.getElementById('mbtn').addEventListener('click',()=>document.getElementById('sb').classList.toggle('open'));
+window.addEventListener('scroll',()=>{const t=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pf').style.width=(t/d*100)+'%'});
+const sects=['hero','location','subject','youth','arc','wardrobe','checklist','gear','schematic','timeline','sound','grade','edit','deliver'];
+const nis=document.querySelectorAll('.ni[data-s]');
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){nis.forEach(n=>n.classList.remove('active'));const a=document.querySelector(`.ni[data-s="${e.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-28% 0px -60% 0px'});
+sects.forEach(id=>{const e=document.getElementById(id);if(e)io.observe(e)});
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{rootMargin:'0px 0px -65px 0px'});
+document.querySelectorAll('.rv').forEach(e=>ro.observe(e));
+function toggleArc(id){const c=document.getElementById(id),ex=c.classList.contains('open');document.querySelectorAll('.arc-card').forEach(x=>{x.classList.remove('open');x.querySelector('.arc-toggle').textContent='Expand acts \u2193'});if(!ex){c.classList.add('open');c.querySelector('.arc-toggle').textContent='Collapse \u2191'}}
+function chk(el){el.classList.toggle('done')}
+function sg(id,btn){document.querySelectorAll('.g-pane').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.g-tab').forEach(t=>t.classList.remove('on'));document.getElementById('gp-'+id).classList.add('on');btn.classList.add('on')}
+</script>
+</body>
+</html>

@@ -63,7 +63,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .main{margin-left:256px;min-height:100vh}
 
 /* ── HERO — terracotta compound ───────────────── */
-.hero{position:relative;height:100vh;min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 4.5rem 3.5rem;overflow:hidden}
+.hero{/* ADD THESE THREE LINES — everything else stays */
+  background-image: url('bla-quarter-hero.jpg');
+  background-size: cover;
+  background-position: center 28%;position:relative;height:100vh;min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 4.5rem 3.5rem;overflow:hidden}
 .h-bg{position:absolute;inset:0;background:
   radial-gradient(ellipse at 60% 30%,rgba(181,69,53,.18) 0%,transparent 55%),
   radial-gradient(ellipse at 15% 80%,rgba(212,168,32,.08) 0%,transparent 45%),

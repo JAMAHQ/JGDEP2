@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jamestown Glory Days — E004 Hajia 1 Day — Production Bible</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Karla:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   JAMESTOWN GLORY DAYS · E004 · HAJIA 1 DAY
+   Location palette: chalk white lime wash · deep
+   shadow-black · sage green louvre · warm wood tile
+═══════════════════════════════════════════════ */
+:root {
+  /* E004 location palette — white compound, Kofi Oku Road */
+  --chalk:#F4F2EE;--chalk-w:#FAFAF8;--chalk-d:#E0DDD8;--chalk-p:#F8F7F4;
+  --shadow:#0E0E0C;--shadow-m:#1C1C18;--shadow-s:#2E2E28;--shadow-mu:#6A6A60;
+  --sage:#4A6B52;--sage-v:#5A7B62;--sage-lt:#C8D8C8;--sage-pale:#EBF0EB;
+  --wood:#B89060;--wood-lt:#D4B080;--wood-d:#8A6A40;
+  --lime:#D8D4C8;--lime-d:#B0AC98;
+  --slate:#8A8A80;--slate-lt:#C4C4BC;
+  --cream:#FDFCF8;--parch:#F5F3EE;--aged:#E8E4DC;
+  --teal:#2D7A5E;--teal-v:#3D8A6E;
+  --red:#C83020;
+  --ink:#0E0E0C;--ink-m:#1C1C18;--ink-s:#2E2E28;--ink-mu:#6A6A60;
+  /* accent — the one warm note against white */
+  --accent:#8B3A28;--accent-lt:#C05840;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;background:var(--chalk-w);color:var(--ink);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.8}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--chalk-d)}::-webkit-scrollbar-thumb{background:var(--shadow-mu);border-radius:2px}
+
+/* ── SIDEBAR ──────────────────────────────────── */
+.sb{position:fixed;left:0;top:0;bottom:0;width:256px;background:var(--shadow);z-index:100;display:flex;flex-direction:column;border-right:1px solid var(--shadow-m);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.sb-top{padding:1.6rem 1.4rem .9rem;border-bottom:1px solid var(--shadow-m)}
+.sb-series{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lime-d);display:block;margin-bottom:.15rem}
+.sb-doc{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;color:var(--chalk);line-height:1.05}
+.sb-year{font-size:.58rem;color:var(--shadow-mu);letter-spacing:.12em;text-transform:uppercase;margin-top:.25rem;display:block}
+.sb-ep{padding:.8rem 1.4rem;border-bottom:1px solid var(--shadow-m);display:flex;align-items:center;gap:.7rem}
+.ep-badge{background:var(--shadow-s);color:var(--chalk-d);font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:.25rem .55rem;border-radius:2px;flex-shrink:0;border:1px solid var(--shadow-mu)}
+.ep-name{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--chalk);font-style:italic;display:block;line-height:1.2}
+.ep-detail{font-size:.6rem;color:var(--shadow-mu);letter-spacing:.05em;margin-top:.1rem;display:block}
+.nav-wrap{flex:1;overflow-y:auto;padding:.5rem 0}
+.nav-grp{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--shadow-s);padding:.5rem 1.4rem .2rem;font-weight:700;margin-top:.3rem}
+.nav-tag{display:inline-block;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(45,122,94,.3);color:var(--teal-v);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle}
+.ni{display:flex;align-items:center;gap:.6rem;padding:.45rem 1.4rem;font-size:.74rem;color:var(--shadow-mu);cursor:pointer;transition:all .18s;border-left:2px solid transparent;font-weight:400}
+.ni:hover{color:var(--chalk-d);background:rgba(244,242,238,.06)}
+.ni.active{color:var(--chalk);border-left-color:var(--chalk-d);background:rgba(244,242,238,.08);font-weight:500}
+.ni.shared:hover,.ni.shared.active{color:var(--teal-v)}
+.ni.shared.active{border-left-color:var(--teal)}
+.ni-ico{font-size:.78rem;width:13px;text-align:center;flex-shrink:0}
+.sb-foot{padding:.85rem 1.4rem;border-top:1px solid var(--shadow-m);font-size:.58rem;color:var(--shadow-s);letter-spacing:.05em;line-height:1.6}
+.sb-foot strong{color:var(--lime-d);font-weight:600}
+
+.mb-btn{display:none;position:fixed;top:.85rem;left:.85rem;z-index:200;background:var(--shadow);border:none;width:36px;height:36px;border-radius:3px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.mb-btn span{display:block;width:17px;height:1.5px;background:var(--chalk-d);border-radius:1px}
+
+/* ── PROGRESS ─────────────────────────────────── */
+.prog{position:fixed;top:0;left:256px;right:0;height:2px;background:var(--chalk-d);z-index:98}
+.prog-f{height:100%;background:linear-gradient(90deg,var(--shadow-mu),var(--sage),var(--wood));width:0%;transition:width .08s}
+
+.main{margin-left:256px;min-height:100vh}
+
+/* ── HERO — white compound wall ───────────────── */
+.hero{position:relative;height:100vh;min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 4.5rem 3.5rem;overflow:hidden}
+.h-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 40% 40%,rgba(74,107,82,.10) 0%,transparent 50%),
+  radial-gradient(ellipse at 80% 70%,rgba(184,144,96,.08) 0%,transparent 40%),
+  linear-gradient(170deg,rgba(8,8,6,0.65) 0%,rgba(14,14,12,0.50) 35%,rgba(14,14,12,0.72) 70%,rgba(8,8,6,0.95) 100%),
+  url('hajia-hero.png') center 35% / cover no-repeat;
+  background-color:#080806}
+/* Window louvre grid suggestion */
+.h-win{position:absolute;top:8%;right:18%;width:200px;height:180px;border:2px solid rgba(74,107,82,.12);pointer-events:none}
+.h-win::before{content:'';position:absolute;inset:0;background:
+  repeating-linear-gradient(0deg,transparent,transparent 19px,rgba(74,107,82,.08) 19px,rgba(74,107,82,.08) 20px),
+  repeating-linear-gradient(90deg,transparent,transparent 19px,rgba(74,107,82,.08) 19px,rgba(74,107,82,.08) 20px)}
+.h-acc{position:absolute;right:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent 0%,var(--sage) 30%,var(--wood) 70%,transparent 100%);opacity:.3}
+.h-ep-label{position:absolute;top:2.5rem;left:4.5rem;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lime-d);opacity:0;animation:fup .6s ease .1s forwards}
+.h-ep-num{position:absolute;top:3.5rem;left:4.5rem;font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:700;color:rgba(244,242,238,.05);line-height:1;opacity:0;animation:fup .6s ease .15s forwards;pointer-events:none;user-select:none}
+.h-eye{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lime-d);margin-bottom:.9rem;opacity:0;animation:fup .6s ease .2s forwards}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,7vw,6rem);font-weight:700;color:var(--chalk);line-height:.92;margin-bottom:.35rem;opacity:0;animation:fup .7s ease .35s forwards}
+.h-title em{font-style:italic;color:var(--chalk-d)}
+.h-title .days{display:block;font-size:clamp(1.4rem,3.5vw,2.8rem);color:var(--lime-d);font-style:normal;margin-top:.1rem}
+.h-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(.85rem,2vw,1.25rem);font-weight:300;color:var(--slate-lt);font-style:italic;margin-bottom:1rem;opacity:0;animation:fup .7s ease .5s forwards}
+.h-tagline{font-size:.7rem;letter-spacing:.08em;color:var(--teal-v);font-style:italic;margin-bottom:2rem;padding-left:.8rem;opacity:0;animation:fup .7s ease .6s forwards;border-left:2px solid var(--teal)}
+.h-meta{display:flex;gap:.8rem;flex-wrap:wrap;opacity:0;animation:fup .7s ease .75s forwards}
+.htag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk-d);padding:.28rem .8rem;border:1px solid rgba(244,242,238,.2);border-radius:2px}
+.htag.g{color:var(--sage-v);border-color:rgba(74,107,82,.35)}
+.htag.w{color:var(--wood-lt);border-color:rgba(184,144,96,.32)}
+.htag.t{color:var(--teal-v);border-color:rgba(61,138,110,.32)}
+.h-scroll{position:absolute;bottom:1.8rem;right:4.5rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--shadow-mu);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fup .6s ease 1.1s forwards}
+.h-sline{width:1px;height:34px;background:linear-gradient(to bottom,var(--chalk-d),transparent);animation:spulse 2s ease infinite}
+
+/* ── SECTION BASE ─────────────────────────────── */
+.sec{padding:4.5rem}
+.sec-chalk{background:var(--chalk-p)}
+.sec-ink{background:var(--shadow);color:var(--chalk)}
+.sec-eye{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--shadow-mu);margin-bottom:.6rem;font-weight:700}
+.sec-eye.g{color:var(--sage-v)}
+.sec-eye.w{color:var(--wood)}
+.sec-eye.t{color:var(--teal-v)}
+.sec-eye.shared-label::after{content:'· SHARED ACROSS ALL EPISODES';margin-left:.5rem;color:var(--teal-v);font-size:.52rem;letter-spacing:.15em}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.65rem,3.6vw,2.7rem);font-weight:700;line-height:1.1;margin-bottom:1.2rem}
+.sec-ink .sec-title{color:var(--chalk)}
+.sec-rule{width:48px;height:2px;background:var(--shadow-mu);margin-bottom:1.7rem;border-radius:1px}
+.sec-rule.g{background:var(--sage)}
+.sec-rule.t{background:var(--teal)}
+.sec-rule.w{background:var(--wood)}
+.body-t{font-size:.9rem;line-height:1.8;color:var(--ink-s);max-width:660px}
+.sec-ink .body-t{color:var(--slate-lt)}
+
+.shared-strip{height:2px;background:linear-gradient(90deg,var(--teal),rgba(61,138,110,.2))}
+.shared-notice{background:rgba(45,122,94,.05);border-bottom:1px solid rgba(45,122,94,.12);padding:.6rem 4.5rem;font-size:.65rem;color:var(--teal-v);letter-spacing:.08em;display:flex;align-items:center;gap:.6rem}
+.shared-notice::before{content:'↗'}
+
+/* ── LOCATION ANALYSIS ──────────────────────────── */
+.loc-compare{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.8rem 0}
+.loc-card{border-radius:4px;padding:1.4rem;position:relative;overflow:hidden}
+.loc-card.ep-prev{background:rgba(232,115,90,.06);border:1px solid rgba(232,115,90,.2)}
+.loc-card.ep-now{background:rgba(14,14,12,.04);border:1px solid rgba(14,14,12,.12)}
+.loc-ep{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:.4rem}
+.loc-card.ep-prev .loc-ep{color:#C05040}
+.loc-card.ep-now .loc-ep{color:var(--shadow-s)}
+.loc-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;margin-bottom:.6rem;color:var(--ink)}
+.loc-detail{font-size:.77rem;color:var(--ink-s);line-height:1.6}
+
+/* ── YOUTH IMPACT ───────────────────────────────── */
+.youth-banner{background:linear-gradient(135deg,#1A4535,var(--teal));padding:2rem 2.2rem;border-radius:4px;margin:2rem 0;position:relative;overflow:hidden}
+.youth-banner::before{content:'JAMESTOWN GLORY DAYS';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:rgba(255,255,255,.04);white-space:nowrap;pointer-events:none}
+.yb-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.4rem;font-weight:700}
+.yb-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:white;font-weight:700;margin-bottom:.6rem}
+.yb-text{font-size:.83rem;color:rgba(255,255,255,.85);line-height:1.65;max-width:680px}
+.yb-pillars{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.yb-pill{font-size:.62rem;letter-spacing:.08em;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.25);padding:.25rem .7rem;border-radius:20px}
+
+/* ── LOGLINE ────────────────────────────────────── */
+.logline{font-family:'Cormorant Garamond',serif;font-size:clamp(.95rem,2.1vw,1.35rem);font-style:italic;line-height:1.65;color:var(--ink);border-left:2px solid var(--shadow-mu);padding:.85rem 0 .85rem 1.3rem;margin:1.6rem 0;max-width:700px}
+
+/* ── THREE-PART ARC ─────────────────────────────── */
+.arc-grid{display:grid;grid-template-columns:repeat(3,1fr);margin:2.2rem -4.5rem}
+.arc-card{padding:2.5rem 2.2rem;position:relative;cursor:pointer;transition:background .3s;border-right:1px solid rgba(244,242,238,.08);overflow:hidden}
+.arc-card:last-child{border-right:none}
+.arc-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:var(--chalk);opacity:.04;transition:height .4s cubic-bezier(.16,1,.3,1)}
+.arc-card:hover::before{height:100%}
+.arc-n{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:rgba(244,242,238,.07);line-height:1;margin-bottom:.35rem;transition:color .3s}
+.arc-card:hover .arc-n{color:rgba(244,242,238,.16)}
+.arc-lbl{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lime-d);margin-bottom:.45rem}
+.arc-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--chalk);margin-bottom:.75rem;font-style:italic}
+.arc-dur{font-size:.65rem;color:var(--teal-v);letter-spacing:.08em;margin-bottom:.75rem}
+.arc-desc{font-size:.78rem;color:var(--shadow-mu);line-height:1.6}
+.arc-acts{margin-top:1rem;display:none}
+.arc-card.open .arc-acts{display:block}
+.act-row{padding:.42rem 0;border-top:1px solid rgba(244,242,238,.08);font-size:.72rem;color:var(--slate-lt);line-height:1.5}
+.act-tc{color:var(--lime-d);font-weight:700;margin-right:.4rem}
+.arc-toggle{margin-top:.85rem;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime-d)}
+
+/* ── PROFILE ────────────────────────────────────── */
+.profile-wrap{display:grid;grid-template-columns:300px 1fr;gap:3rem;align-items:start}
+.p-card{background:var(--shadow);border-radius:4px;overflow:hidden;position:sticky;top:2rem;border:1px solid var(--shadow-m)}
+.p-hdr{background:linear-gradient(140deg,var(--shadow-s) 0%,var(--shadow-m) 100%);padding:1.7rem;text-align:center;position:relative;border-bottom:1px solid var(--shadow-s)}
+.p-hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to bottom,transparent,rgba(14,14,12,.4))}
+.p-init{width:62px;height:62px;border-radius:50%;background:rgba(244,242,238,.06);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--chalk);margin:0 auto .8rem;border:1px solid rgba(244,242,238,.15)}
+.p-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--chalk);font-style:italic;margin-bottom:.15rem;position:relative;z-index:1}
+.p-legal{font-size:.58rem;color:rgba(244,242,238,.5);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
+.p-ep-tag{font-size:.56rem;letter-spacing:.12em;color:rgba(244,242,238,.3);margin-top:.3rem;display:block;position:relative;z-index:1}
+.p-body{padding:1.2rem}
+.p-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--shadow-m);font-size:.72rem;gap:.8rem}
+.p-row:last-child{border-bottom:none}
+.p-lbl{color:var(--shadow-mu);flex-shrink:0}
+.p-val{color:var(--chalk);text-align:right;font-weight:500}
+.p-val.g{color:var(--sage-v)}.p-val.t{color:var(--teal-v)}.p-val.w{color:var(--wood-lt)}
+
+/* ── WARDROBE ───────────────────────────────────── */
+.wd-row{display:flex;flex-wrap:wrap;gap:.9rem;margin:1rem 0}
+.wd-item{text-align:center}
+.wd-swatch{width:42px;height:42px;border-radius:7px;border:1px solid rgba(0,0,0,.08)}
+.wd-label{font-size:.6rem;color:var(--ink-mu);margin-top:.3rem;display:block}
+.wd-x{border:2px solid var(--red) !important}
+
+/* ── CHECKLIST ──────────────────────────────────── */
+.cl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;margin-top:1.8rem}
+.cl-grp h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--shadow-s);margin-bottom:.85rem;padding-bottom:.3rem;border-bottom:1px solid var(--aged)}
+.ci{display:flex;gap:.65rem;padding:.42rem 0;font-size:.77rem;color:var(--ink-s);line-height:1.5;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;transition:color .15s;align-items:flex-start}
+.ci:hover{color:var(--ink)}
+.cbox{width:14px;height:14px;border:1.5px solid var(--slate);border-radius:2px;flex-shrink:0;margin-top:2px;transition:all .18s;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:transparent}
+.ci.done .cbox{background:var(--teal);border-color:var(--teal);color:white}
+.ci.done .ct{text-decoration:line-through;opacity:.4}
+
+/* ── GEAR ───────────────────────────────────────── */
+.g-tabs{display:flex;border-bottom:1px solid var(--aged);margin-bottom:1.6rem;overflow-x:auto}
+.g-tab{padding:.65rem 1.25rem;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-mu);cursor:pointer;border-bottom:2px solid transparent;transition:all .18s;font-weight:500;background:none;border-top:none;border-left:none;border-right:none;font-family:'Karla',sans-serif;white-space:nowrap}
+.g-tab:hover{color:var(--shadow-s)}
+.g-tab.on{color:var(--shadow);border-bottom-color:var(--shadow)}
+.g-pane{display:none}.g-pane.on{display:block}
+.placeholder-notice{background:rgba(14,14,12,.04);border:1px dashed rgba(14,14,12,.2);border-radius:4px;padding:1.2rem 1.4rem;text-align:center;color:var(--ink-mu);font-size:.8rem;margin:.5rem 0}
+.placeholder-notice strong{color:var(--shadow-s);display:block;margin-bottom:.3rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* ── DATA TABLE ─────────────────────────────────── */
+.dt{width:100%;border-collapse:collapse}
+.dt th{text-align:left;font-size:.58rem;letter-spacing:.17em;text-transform:uppercase;color:var(--chalk);background:var(--shadow-s);padding:.65rem .9rem;font-weight:700}
+.dt td{padding:.65rem .9rem;font-size:.77rem;color:var(--ink-s);border-bottom:1px solid var(--aged);vertical-align:top;line-height:1.5}
+.dt tr:nth-child(even) td{background:var(--chalk-p)}
+.dt tr:hover td{background:rgba(14,14,12,.03)}
+.dt td:first-child{font-weight:600;color:var(--ink)}
+.tdq{text-align:center;color:var(--shadow-mu);font-weight:700}
+
+/* ── SCHEMATIC ──────────────────────────────────── */
+.schematic{background:var(--shadow);border:1px solid var(--shadow-m);border-radius:4px;padding:2rem;font-family:'Courier New',monospace;font-size:.74rem;line-height:1.9;color:var(--slate-lt);position:relative;overflow:hidden;margin:1.6rem 0}
+.schematic::before{content:'LIGHTING DIAGRAM · GOLDEN HOUR · KOFI OKU ROAD WHITE COMPOUND';position:absolute;top:.65rem;right:.9rem;font-family:'Karla',sans-serif;font-size:.5rem;letter-spacing:.18em;color:var(--shadow-s);text-transform:uppercase}
+.sw{color:var(--chalk-d);font-weight:bold}.sc{color:#7EC8E3}.ss{color:var(--lime-d)}.st{color:var(--teal-v)}.sd{color:var(--shadow-mu)}.sg{color:var(--sage-v)}.sw2{color:var(--wood-lt)}
+.sch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:1.3rem}
+.sch-box{background:rgba(244,242,238,.04);border:1px solid rgba(244,242,238,.1);padding:1rem;border-radius:4px}
+.sch-box.g{background:rgba(74,107,82,.07);border-color:rgba(74,107,82,.18)}
+.sch-box.t{background:rgba(45,122,94,.07);border-color:rgba(45,122,94,.18)}
+.sb-lbl{font-size:.56rem;letter-spacing:.17em;text-transform:uppercase;color:var(--lime-d);margin-bottom:.3rem;font-weight:700}
+.sch-box.g .sb-lbl{color:var(--sage-v)}.sch-box.t .sb-lbl{color:var(--teal-v)}
+.sb-val{font-size:.76rem;color:var(--slate-lt);line-height:1.55}
+
+/* ── TIMELINE ───────────────────────────────────── */
+.tl{position:relative;padding-left:1.7rem;margin-top:1.7rem}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--shadow-mu),var(--teal),transparent)}
+.tl-i{position:relative;padding:0 0 1.3rem 1.7rem}
+.tl-i::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--shadow-mu);border:2px solid var(--chalk-p);transition:transform .18s}
+.tl-i:hover::before{transform:scale(1.35)}
+.tl-i.tp::before{background:var(--teal)}
+.tl-i.key::before{background:var(--sage);border-color:var(--chalk-p)}
+.tt{font-size:.63rem;font-weight:700;color:var(--shadow-s);letter-spacing:.09em;margin-bottom:.15rem}
+.tl-i.tp .tt{color:var(--teal)}.tl-i.key .tt{color:var(--sage-v)}
+.tx{font-size:.79rem;color:var(--ink-s);line-height:1.5}
+
+/* ── CALLOUTS ───────────────────────────────────── */
+.call{padding:1rem 1.3rem;border-left:2px solid var(--shadow-mu);background:rgba(14,14,12,.04);border-radius:0 4px 4px 0;margin:.85rem 0}
+.call.g{border-left-color:var(--sage);background:rgba(74,107,82,.05)}
+.call.t{border-left-color:var(--teal);background:rgba(45,122,94,.05)}
+.call.w{border-left-color:var(--wood);background:rgba(184,144,96,.05)}
+.call.dk{border-left-color:var(--shadow-s);background:rgba(14,14,12,.06)}
+.cl{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--shadow-s);margin-bottom:.3rem}
+.call.g .cl{color:var(--sage-v)}.call.t .cl{color:var(--teal)}.call.w .cl{color:var(--wood)}
+.cv{font-size:.79rem;color:var(--ink-s);line-height:1.6}
+.call.t .cv,.sec-ink .cv{color:var(--slate-lt)}
+
+/* ── SOUND ──────────────────────────────────────── */
+.sl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--aged);border:1px solid var(--aged);margin:1.7rem 0}
+.sl{background:var(--chalk-w);padding:1.3rem;position:relative;overflow:hidden;transition:background .25s}
+.sl:hover{background:var(--chalk-p)}
+.sl-bg{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:rgba(14,14,12,.04);position:absolute;top:-.2rem;right:.8rem;line-height:1}
+.sl-ttl{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--shadow-s);font-weight:700;margin-bottom:.3rem}
+.sl-d{font-size:.77rem;color:var(--ink-s);line-height:1.6}
+.sl-impl{font-size:.68rem;color:var(--teal);margin-top:.3rem;font-style:italic}
+
+/* ── EDIT PRINCIPLES ────────────────────────────── */
+.principles{display:flex;flex-direction:column;border:1px solid var(--aged);border-radius:4px;overflow:hidden;margin:1.7rem 0}
+.pi{display:flex;align-items:flex-start;gap:1.3rem;padding:1.3rem;border-bottom:1px solid var(--aged);transition:background .18s;cursor:default}
+.pi:last-child{border-bottom:none}
+.pi:hover{background:var(--chalk-p)}
+.pi-n{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--shadow-s);font-weight:700;flex-shrink:0;width:125px;margin-top:.1rem}
+.pi-rule{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-style:italic;color:var(--ink);margin-bottom:.22rem;line-height:1.4}
+.pi-why{font-size:.75rem;color:var(--ink-s);line-height:1.5}
+
+/* ── DELIVERABLES ───────────────────────────────── */
+.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin:1.7rem 0}
+.del-card{border:1px solid var(--aged);border-radius:4px;padding:1rem;transition:border-color .18s,transform .18s}
+.del-card:hover{border-color:var(--shadow-s);transform:translateY(-2px)}
+.dc-type{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.3rem;font-weight:700}
+.dc-name{font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:.38rem}
+.dc-spec{font-size:.69rem;color:var(--ink-mu);line-height:1.5}
+
+/* ── GRADE ──────────────────────────────────────── */
+.grade-strip{display:flex;height:6px;border-radius:4px;overflow:hidden;margin:1.4rem 0 .35rem}
+.gs{flex:1}
+
+/* ── REVEAL ─────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+@keyframes fup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+@media(max-width:880px){
+  .sb{transform:translateX(-100%)}.sb.open{transform:translateX(0)}
+  .mb-btn{display:flex}.main{margin-left:0}.sec{padding:2.5rem 1.5rem}
+  .hero{padding:0 1.5rem 2.5rem}.arc-grid{grid-template-columns:1fr;margin:2rem 0}
+  .arc-card{border-right:none;border-bottom:1px solid rgba(244,242,238,.07)}
+  .cl-grid,.sl-grid,.del-grid,.sch-grid,.loc-compare{grid-template-columns:1fr}
+  .profile-wrap{grid-template-columns:1fr}.prog{left:0}
+  .shared-notice{padding:.5rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="prog"><div class="prog-f" id="pf"></div></div>
+<button class="mb-btn" id="mbtn" aria-label="Menu"><span></span><span></span><span></span></button>
+
+<!-- ════════════════ SIDEBAR ════════════════ -->
+<nav class="sb" id="sb">
+  <div class="sb-top">
+    <span class="sb-series">Production Bible</span>
+    <div class="sb-doc">Jamestown<br>Glory Days</div>
+    <span class="sb-year">2026 · Jamestown, Accra, Ghana</span>
+  </div>
+  <div class="sb-ep">
+    <span class="ep-badge">E 004</span>
+    <div>
+      <span class="ep-name">Hajia 1 Day</span>
+      <span class="ep-detail">Mary Moodi · Kofi Oku Rd, Town D</span>
+    </div>
+  </div>
+  <div class="nav-wrap">
+    <div class="nav-grp">Episode-Specific</div>
+    <div class="ni active" data-s="hero" onclick="go('hero')"><span class="ni-ico">◆</span>Cover</div>
+    <div class="ni" data-s="location" onclick="go('location')"><span class="ni-ico">◎</span>Location Analysis</div>
+    <div class="ni" data-s="subject" onclick="go('subject')"><span class="ni-ico">◉</span>Subject Profile</div>
+    <div class="ni" data-s="youth" onclick="go('youth')"><span class="ni-ico">▲</span>Youth Impact</div>
+    <div class="ni" data-s="arc" onclick="go('arc')"><span class="ni-ico">▷</span>Three-Part Arc</div>
+    <div class="ni" data-s="wardrobe" onclick="go('wardrobe')"><span class="ni-ico">◈</span>Wardrobe</div>
+    <div class="nav-grp">Shared Sections <span class="nav-tag">All Episodes</span></div>
+    <div class="ni shared" data-s="checklist" onclick="go('checklist')"><span class="ni-ico">☑</span>Checklist</div>
+    <div class="ni shared" data-s="gear" onclick="go('gear')"><span class="ni-ico">◧</span>Camera & Gear</div>
+    <div class="ni shared" data-s="schematic" onclick="go('schematic')"><span class="ni-ico">◐</span>Light Schematic</div>
+    <div class="ni shared" data-s="timeline" onclick="go('timeline')"><span class="ni-ico">◷</span>Shoot Day</div>
+    <div class="ni shared" data-s="sound" onclick="go('sound')"><span class="ni-ico">♫</span>Sound Design</div>
+    <div class="ni shared" data-s="grade" onclick="go('grade')"><span class="ni-ico">◑</span>Colour Grade</div>
+    <div class="ni shared" data-s="edit" onclick="go('edit')"><span class="ni-ico">◫</span>Editorial</div>
+    <div class="ni shared" data-s="deliver" onclick="go('deliver')"><span class="ni-ico">◻</span>Deliverables</div>
+  </div>
+  <div class="sb-foot">
+    <strong>Jamestown Glory Days</strong> · 2026<br>
+    Confidential — Production Use Only<br>
+    © 2026 All Rights Reserved
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" id="hero">
+  <div class="h-bg"></div>
+  <div class="h-win"></div>
+  <div class="h-acc"></div>
+  <div class="h-ep-label">Episode 004 · Jamestown Glory Days · 2026</div>
+  <div class="h-ep-num">004</div>
+  <div class="h-eye">Production Bible · Jamestown, Accra, Ghana</div>
+  <h1 class="h-title">
+    <em>Jamestown</em><br>
+    Glory Days<span class="days"></span>
+  </h1>
+  <div class="h-sub">Episode 004 — Hajia 1 Day · Kofi Oku Road, Town D</div>
+  <div class="h-tagline">[ Your series tagline will appear here — share it and I'll update all bibles ]</div>
+  <div class="h-meta">
+    <span class="htag">White Compound · Lime Wall</span>
+    <span class="htag">BMPCC 6K · Lumix S5 · Canon 90D</span>
+    <span class="htag">Ga Language · Subtitled</span>
+    <span class="htag g">Fishermen · Fish-Smoking Women · The Sea</span>
+    <span class="htag w">Calm · Medium Comfort · Mobility Note</span>
+    <span class="htag t">No Mondays or Tuesdays · After 4pm Weekdays</span>
+  </div>
+  <div class="h-scroll">Scroll<div class="h-sline"></div></div>
+</section>
+
+<!-- ════════════════ LOCATION ANALYSIS ════════════════ -->
+<section class="sec" id="location">
+  <div class="rv">
+    <div class="sec-eye">Episode 004 — Location</div>
+    <h2 class="sec-title">New Location, New Story</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">Episode 004 is the most tonally distinct location in the series so far. The white lime-washed compound wall at Kofi Oku Road is not a street-facing mural or a public arch — it is a private domestic threshold. Chalk white. A dark green louvred window. A tiled ledge with potted plants. An open white door. This is the interior world of Jamestown. Quiet, domestic, alive with the details of a life actually lived.</p>
+  </div>
+  <div class="loc-compare rv d1">
+    <div class="loc-card ep-prev">
+      <div class="loc-ep">Episode 003 — S May</div>
+      <div class="loc-title">Kofi Oku Road — Salmon Mural Wall, Public Street</div>
+      <div class="loc-detail">Exterior. Vivid civic art. Salmon and sienna. Public-facing. The neighbourhood asserting itself outward. High saturation, warm amber light.</div>
+    </div>
+    <div class="loc-card ep-now">
+      <div class="loc-ep">Episode 004 — Hajia 1 Day</div>
+      <div class="loc-title">Kofi Oku Road — White Lime Compound, Private Threshold</div>
+      <div class="loc-detail">Semi-interior. Chalk white textured plaster. Deep shadow interior behind the open door. Dark green louvre window. Terracotta tile and warm wood. The most minimal, tonal palette in the series — the drama is in the restraint.</div>
+    </div>
+  </div>
+
+  <div class="rv d2">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;margin:1.8rem 0 .8rem;">Location Opportunity — The White Wall</h3>
+    <p class="body-t" style="margin-bottom:1rem;">The white compound wall is the most cinematographically demanding location in the series. White reads as overexposed if not managed — but properly exposed, it becomes extraordinary. The texture of the lime plaster catches light directionally. The chalk surface has character — it is not paint-fresh white, it is lived-in white. The dark interior of the open doorway on the right creates a natural shadow anchor. Position Hajia 1 Day between the wall and the doorway so the darkness frames her on one side.</p>
+    <div class="call g">
+      <div class="cl">The Louvre Window</div>
+      <div class="cv">The deep green louvred window above and behind the subject is exceptional found production design. Its dark green grid against white plaster is one of the most visually distinctive frames in the series. If the subject is seated on or near the ledge, the window becomes a compositional element above her — weight and history in the background.</div>
+    </div>
+    <div class="call w">
+      <div class="cl">Potted Plants — Found Accent</div>
+      <div class="cv">The two white cement pots with green plants on the tiled ledge are alive — they should remain in frame if they are present on shoot day. Green against white against shadow is the episode's three-tone palette in one composition. Do not move them. They are part of the location's domestic life, not props to be cleared.</div>
+    </div>
+    <div class="call dk">
+      <div class="cl">Colour Palette — What Changes From E003</div>
+      <div class="cv">E003 was vivid salmon at high saturation. E004 is the opposite — chalk white at near-zero saturation. This is the most tonally restrained episode in the series. The grade will work with very little colour information. The visual drama comes from the deep shadow interior (the open door), the sage-green window, and the warm terracotta tile underfoot. Skin tones against white become the sole warm element in the frame.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SUBJECT PROFILE ════════════════ -->
+<section class="sec sec-chalk" id="subject">
+  <div class="rv">
+    <div class="sec-eye g">Episode 004 — Subject Profile</div>
+    <h2 class="sec-title">Hajia 1 Day</h2>
+    <div class="sec-rule g"></div>
+  </div>
+  <div class="profile-wrap rv d1">
+    <div class="p-card">
+      <div class="p-hdr">
+        <div class="p-init">H1</div>
+        <div class="p-name">Hajia 1 Day</div>
+        <div class="p-legal">Mary Moodi</div>
+        <span class="p-ep-tag">Jamestown Glory Days · Episode 004</span>
+      </div>
+      <div class="p-body">
+        <div class="p-row"><span class="p-lbl">DOB</span><span class="p-val">August 1973 (age 53)</span></div>
+        <div class="p-row"><span class="p-lbl">Location</span><span class="p-val">Kofi Oku Rd, Town D</span></div>
+        <div class="p-row"><span class="p-lbl">Roots</span><span class="p-val">Born &amp; raised Jamestown</span></div>
+        <div class="p-row"><span class="p-lbl">Occupation</span><span class="p-val">Pork Seller &amp; Cook</span></div>
+        <div class="p-row"><span class="p-lbl">Secondary</span><span class="p-val">Trader</span></div>
+        <div class="p-row"><span class="p-lbl">Gender</span><span class="p-val">Female</span></div>
+        <div class="p-row"><span class="p-lbl">Language</span><span class="p-val g">Ga — full interview</span></div>
+        <div class="p-row"><span class="p-lbl">Camera</span><span class="p-val">Calm · MEDIUM comfort</span></div>
+        <div class="p-row"><span class="p-lbl">Faith</span><span class="p-val t">True Word Ministry · Agbado Bus Stop</span></div>
+        <div class="p-row"><span class="p-lbl">Education</span><span class="p-val">None recorded</span></div>
+        <div class="p-row"><span class="p-lbl">Family</span><span class="p-val">7 children · 1 mother · 1 father</span></div>
+        <div class="p-row"><span class="p-lbl">Mother</span><span class="p-val">Naomi Aku Allotey</span></div>
+        <div class="p-row"><span class="p-lbl">Father</span><span class="p-val">Moodi</span></div>
+        <div class="p-row"><span class="p-lbl">Mobility</span><span class="p-val w">⚠ Physical consideration noted</span></div>
+        <div class="p-row"><span class="p-lbl">Availability</span><span class="p-val g">No Mon/Tue · After 4pm · Sundays</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="body-t" style="margin-bottom:1.2rem;">Born in August 1973 on Kofi Oku Road, Town D, Mary Moodi — known everywhere in Jamestown as Hajia 1 Day — is a pork seller and cook. She cooks during the Homowo festival for the Lantey Dzan-We. She is 53. She has raised seven children from one mother and one father. She belongs to True Word Ministry at Agbado Bus Stop. She has no formal education on record. And she has watched Jamestown's fishing economy — its men, its women, its smoke, its salt — from the inside.</p>
+      <p class="body-t" style="margin-bottom:1.5rem;">What makes Hajia 1 Day's voice irreplaceable in this series is proximity. She did not observe the fishing world from a distance. She lived in it. She cooked beside the women who smoked fish over open fires. She knew the fishermen who went to sea each morning. She watched the youth of Jamestown change. She carries those three layers — the sea, the women, the shift — in one life on one road.</p>
+
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:.85rem;">The Nickname — Hajia 1 Day</h3>
+      <div class="call g">
+        <div class="cl">Ask About the Name</div>
+        <div class="cv">The nickname "Hajia 1 Day" is not incidental. Names in Jamestown carry stories — they are given for reasons, confirmed by events, and held for decades. Ask her, in Ga, what the name means. How it came. Who gave it. This may be the interview's most surprising open door. Let her take it wherever it leads.</div>
+      </div>
+
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin:1.5rem 0 .85rem;">Key Stories to Draw Out</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.4rem;">
+        <div class="call"><div class="cl">Story 1</div><div class="cv">The difference in attitude between the youth of Jamestown then and now — what changed, what was lost, what she observes in the young people on her street today.</div></div>
+        <div class="call g"><div class="cl" style="color:var(--sage-v);">Story 2 — The Fishermen</div><div class="cv">The life of the fishermen who went to sea daily. What that departure looked like each morning. What the return looked like. What the sea took and what it gave back.</div></div>
+        <div class="call w"><div class="cl" style="color:var(--wood);">Story 3 — The Women</div><div class="cv">Women smoking and selling fish. Who those women were. What the smoke smelled like. What their work meant for the economy of Jamestown and for the dignity of women in trade.</div></div>
+        <div class="call t"><div class="cl">Story 4</div><div class="cv">The Lantey Dzan-We — her role in the Homowo cooking. What it meant to cook for the community feast as a woman whose faith is True Word Ministry, not traditional religion.</div></div>
+      </div>
+
+      <div class="call" style="border-left-color:var(--accent);background:rgba(139,58,40,.04);">
+        <div class="cl" style="color:var(--accent);">Mobility Consideration</div>
+        <div class="cv">Mobility is noted as a physical consideration. Confirm seating arrangements well in advance — the production manager should check with her before shoot day. The compound ledge in the location photo offers a natural, comfortable, low seating option that does not require navigating steps. Confirm this works for her. Have a proper chair available as backup. Do not place her in a position that creates physical strain during a 90-minute interview.</div>
+      </div>
+
+      <div class="call dk" style="margin-top:.8rem;">
+        <div class="cl">Director's Note — Medium Comfort, Tighter Window</div>
+        <div class="cv">Hajia 1 Day's comfort level is medium, and her availability window is the tightest in the series — after 4pm on most days, not available Monday or Tuesday. This means the golden hour window and the interview window are nearly identical. Do not let the time pressure affect the rapport-building. Arrive early, set up early, and have everything ready before she arrives so the transition to camera is effortless.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ YOUTH IMPACT ════════════════ -->
+<section class="sec sec-ink" id="youth">
+  <div class="rv">
+    <div class="sec-eye t">Jamestown Glory Days — Mission</div>
+    <h2 class="sec-title">Youth Impact Framework</h2>
+    <div class="sec-rule t"></div>
+    <p class="body-t" style="margin-bottom:1.8rem;">Hajia 1 Day's stories carry a direct message for the youth of Jamestown about labour, dignity, and the economics of a community that fed itself from the sea. The fishing world she describes is not history — it is the foundation that the present stands on, mostly without knowing it.</p>
+  </div>
+  <div class="youth-banner rv d1">
+    <div class="yb-label">Episode 004 · Youth Mission Statement</div>
+    <div class="yb-title">The Women Who Smoked the Fish Fed This Town.</div>
+    <div class="yb-text">Before the supermarkets. Before the frozen imports. Before the phones. There were women on the beach at Jamestown who woke before sunrise, built fires, smoked fish over heat until their hands and hair and clothes carried the smell of it, and sold what they made to feed the neighbourhood. Those women had no titles. They did not appear in newspapers. They were not celebrated. They simply worked — and the community ate. Hajia 1 Day knew those women. She can name them. She can describe the colour of the smoke. The youth of Jamestown are descendants of that economy. They should know what it cost, and what it was worth.</div>
+    <div class="yb-pillars">
+      <span class="yb-pill">The Fishing Economy</span>
+      <span class="yb-pill">Women in Trade</span>
+      <span class="yb-pill">Youth &amp; Attitude</span>
+      <span class="yb-pill">The Sea</span>
+      <span class="yb-pill">Homowo &amp; Lantey Dzan-We</span>
+      <span class="yb-pill">Dignity of Labour</span>
+      <span class="yb-pill">Community Memory</span>
+    </div>
+  </div>
+  <div class="rv d2" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-top:1.8rem;">
+    <div class="call t">
+      <div class="cl">The Sea Thread</div>
+      <div class="cv" style="color:var(--slate-lt);">Ask her to describe one morning when the fishermen left for the sea. Not a general description — one specific morning she remembers. The hour. The sound. Who she saw. The specificity of the memory is the teaching.</div>
+    </div>
+    <div class="call t">
+      <div class="cl">The Women Thread</div>
+      <div class="cv" style="color:var(--slate-lt);">Ask her to name one woman who smoked fish on the Jamestown beach. Just one. With her name. This act of naming — of refusing to let a person be anonymous — is the series mission at its most precise.</div>
+    </div>
+    <div class="call dk">
+      <div class="cl">End Card Direction</div>
+      <div class="cv" style="color:var(--slate-lt);">Final question: "What do you want the young people of Jamestown to understand about the women who worked on this beach?" Her answer is the episode's closing frame. Direct address to youth. Hold 12 seconds. Fade to black.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ THREE-PART ARC ════════════════ -->
+<section class="sec sec-chalk" id="arc">
+  <div class="rv">
+    <div class="sec-eye g">Episode 004 — Story Arc</div>
+    <h2 class="sec-title">Three-Part Mini-Arc</h2>
+    <div class="sec-rule g"></div>
+    <div class="logline">A pork seller and cook who watched Jamestown's fishermen leave every morning and the women who turned what the sea gave into what the neighbourhood ate.</div>
+    <p class="body-t">Hajia 1 Day's arc follows the series template — Past, Faith/Family/Community, Legacy/Youth — built around the fishing world as the spine. The pork trade and the Homowo cooking are the personal threads. The youth and attitude shift is the judgment she brings to the present.</p>
+  </div>
+  <div class="arc-grid sec-ink rv d1">
+    <div class="arc-card" id="ac1" onclick="toggleArc('ac1')">
+      <div class="arc-n">I</div>
+      <div class="arc-lbl">Act 1 — The Past</div>
+      <div class="arc-title">When the Boats Still Left</div>
+      <div class="arc-dur">~26 minutes</div>
+      <div class="arc-desc">Kofi Oku Road in the era she grew up in. The fishermen. The beach before it changed. The trading women. What Jamestown smelled and sounded like when the sea economy was alive.</div>
+      <div class="arc-acts">
+        <div class="act-row"><span class="act-tc">0:00–7:00</span>Born August 1973. What was Town D when she was a child? Who were the people on Kofi Oku Road? What did the mornings feel like?</div>
+        <div class="act-row"><span class="act-tc">7:00–16:00</span>The fishermen — who they were, what they carried, what the departure looked like, what the return meant for the neighbourhood.</div>
+        <div class="act-row"><span class="act-tc">16:00–23:00</span>The fish-smoking women — names, faces, the fires, the smoke, what they sold and who bought it. The informal economy that held Jamestown together.</div>
+        <div class="act-row"><span class="act-tc">23:00–26:00</span>Close — "That was what we had." Wide on white wall. Plant in foreground. Cut to black.</div>
+      </div>
+      <div class="arc-toggle" onclick="toggleArc('ac1')">Expand acts ↓</div>
+    </div>
+    <div class="arc-card" id="ac2" onclick="toggleArc('ac2')">
+      <div class="arc-n">II</div>
+      <div class="arc-lbl">Act 2 — Faith, Family &amp; Community</div>
+      <div class="arc-title">The Cook, the Feast, the Church</div>
+      <div class="arc-dur">~30 minutes</div>
+      <div class="arc-desc">Her life as a pork seller and cook. The Homowo cooking for Lantey Dzan-We. True Word Ministry. The seven children. What community obligation meant for a woman with her particular story.</div>
+      <div class="arc-acts">
+        <div class="act-row"><span class="act-tc">0:00–10:00</span>The pork trade — what that work is, where she sources, how she cooks, what the trade means in a Muslim-named woman's life in Jamestown.</div>
+        <div class="act-row"><span class="act-tc">10:00–18:00</span>The Lantey Dzan-We cooking — her role, the food, what Homowo means to a woman whose faith is True Word Ministry.</div>
+        <div class="act-row"><span class="act-tc">18:00–26:00</span>True Word Ministry at Agbado Bus Stop — what her church community is, how it differs from the traditional and Methodist worlds of Jamestown.</div>
+        <div class="act-row"><span class="act-tc">26:00–30:00</span>The family — seven children from one mother and one father. What that inheritance of hardworking means in practice. What she passed down.</div>
+      </div>
+      <div class="arc-toggle" onclick="toggleArc('ac2')">Expand acts ↓</div>
+    </div>
+    <div class="arc-card" id="ac3" onclick="toggleArc('ac3')">
+      <div class="arc-n">III</div>
+      <div class="arc-lbl">Act 3 — Legacy &amp; Youth</div>
+      <div class="arc-title">What the Young Ones Don't Know</div>
+      <div class="arc-dur">~26 minutes</div>
+      <div class="arc-desc">The change in youth attitude. What is different. What was expected of young people in her time and what is expected now. What the fishing women and the sea meant — and what is lost when that story is not told.</div>
+      <div class="arc-acts">
+        <div class="act-row"><span class="act-tc">0:00–10:00</span>The youth of Jamestown — the specific attitudinal differences she observes. Not a general complaint but particular behaviours, particular losses.</div>
+        <div class="act-row"><span class="act-tc">10:00–20:00</span>What the fishing economy taught people — about work, about the sea, about failure and trying again. What young people miss by not knowing it.</div>
+        <div class="act-row"><span class="act-tc">20:00–24:00</span>The women who smoked fish — their names, their dignity, their erasure. What it means to Hajia 1 Day that those women are forgotten.</div>
+        <div class="act-row"><span class="act-tc">24:00–26:00</span>Final close — direct address to youth. "The women who fed you — do you know their names?" Hold on face 12 seconds. Fade to black.</div>
+      </div>
+      <div class="arc-toggle" onclick="toggleArc('ac3')">Expand acts ↓</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WARDROBE ════════════════ -->
+<section class="sec" id="wardrobe">
+  <div class="rv">
+    <div class="sec-eye g">Episode 004 — Wardrobe Direction</div>
+    <h2 class="sec-title">Colour Separation Strategy</h2>
+    <div class="sec-rule g"></div>
+    <p class="body-t">The white lime wall is the most demanding wardrobe challenge in the series. White-on-white disappears entirely. The subject must carry the colour of the frame. This is the episode where fabric choice is most critical. Deep, saturated colour against white reads beautifully — the subject becomes the painting in front of the wall.</p>
+  </div>
+  <div class="rv d1">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;margin:1.5rem 0 .85rem;">Works — Against Chalk White</h3>
+    <div class="wd-row">
+      <div class="wd-item"><div class="wd-swatch" style="background:#1A3A5C;"></div><span class="wd-label">Deep navy</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#4A6B52;"></div><span class="wd-label">Sage green</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#5A2038;"></div><span class="wd-label">Burgundy</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#8B3A28;"></div><span class="wd-label">Deep sienna</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#2D7A5E;"></div><span class="wd-label">Deep teal</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#3A3A38;"></div><span class="wd-label">Charcoal</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#0E0E0C;"></div><span class="wd-label">Black</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#5A3060;"></div><span class="wd-label">Deep purple</span></div>
+      <div class="wd-item"><div class="wd-swatch" style="background:#7A5030;"></div><span class="wd-label">Rich brown</span></div>
+    </div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;margin:1.5rem 0 .85rem;">Avoid — Merges or Blows Against White Wall</h3>
+    <div class="wd-row">
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#F4F2EE;"></div><span class="wd-label">White / cream</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#E8E4DC;"></div><span class="wd-label">Ivory / beige</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#D8D4C8;"></div><span class="wd-label">Light grey</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#F5E8C0;"></div><span class="wd-label">Pale yellow</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#E8C8A8;"></div><span class="wd-label">Pale tan</span></div>
+      <div class="wd-item"><div class="wd-swatch wd-x" style="background:#F0D8D0;"></div><span class="wd-label">Blush / pink</span></div>
+    </div>
+    <div class="call g" style="margin-top:1.5rem;">
+      <div class="cl">Wardrobe Conversation Protocol</div>
+      <div class="cv">Do not tell Hajia 1 Day what to wear. Show her two or three colour options and let her choose. As a woman connected to Jamestown's trading and cooking culture she likely owns ankara or kente-print fabric. A deep teal, navy, or rich brown church cloth reads beautifully against the white wall. A headtie in a complementary colour adds visual height. This is also the episode where black fabric would be most striking cinematically — the subject as pure silhouette against chalk white plaster.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CHECKLIST [SHARED] ════════════════ -->
+<div class="shared-strip" id="checklist"></div>
+<div class="shared-notice">This section is shared across all Jamestown Glory Days episodes. Update once — applies to all.</div>
+<section class="sec sec-chalk" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Pre-Production</div>
+    <h2 class="sec-title">Production Checklist</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">E004-specific notes: Mobility consideration must be confirmed before shoot day — production manager to speak with Hajia 1 Day directly about seating. Available after 4pm weekdays and Sundays. Not available Mondays or Tuesdays. White wall location requires careful exposure testing before subject arrives.</p>
+  </div>
+  <div class="cl-grid rv d1">
+    <div class="cl-grp">
+      <h3>Subject Preparation</h3>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Bio sheet distributed to all crew</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Interview questions translated into Ga</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Ga-fluent director confirmed on crew</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Advance rapport visit done (min. 3 days before)</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Wardrobe colour consultation — subject chose garment</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Transport arranged to location</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Mobility confirmed — seating option tested and approved</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Shoot window confirmed — after 4pm, no Mon/Tue</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Trusted companion cleared to be present off-camera</span></div>
+    </div>
+    <div class="cl-grp">
+      <h3>Location — Kofi Oku Road White Compound</h3>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Recce done — white wall condition and framing confirmed</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Compound owner and neighbourhood elder — permissions secured</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">White wall exposure test — blown highlights are a real risk</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Shadow interior of open door — depth framing tested</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Noise test at golden hour — Kofi Oku Road ambient bed recorded</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Electrical access for LED panel</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Security / camera watch assigned</span></div>
+    </div>
+    <div class="cl-grp">
+      <h3>Camera & Sound</h3>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">A-Cam — cards ×3, batteries ×6, lenses confirmed</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">B-Cam — log profile activated, cards, 85mm mounted</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Stills camera — RAW enabled, portrait lens, cards</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Primary boom mic in blimp + windjammer</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Field recorder — levels preset, headphones ×2</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Ambient recorder staged and running independently</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Colour checker passport — both cameras</span></div>
+    </div>
+    <div class="cl-grp">
+      <h3>Lighting & Safety</h3>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">LED bi-colour key — charged and gelled</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">120cm+ reflector (5-in-1) — silver side confirmed</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">CTO gel set — full, half, quarter labelled</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Sandbags ×4 minimum — all stands weighted</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">First aid kit on set</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Emergency contacts laminated — every crew member</span></div>
+      <div class="ci done" onclick="chk(this)"><div class="cbox">✓</div><span class="ct">Backup drives ×2 — double backup protocol</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ GEAR [SHARED] ════════════════ -->
+<div class="shared-strip" id="gear"></div>
+<div class="shared-notice">Equipment list is a placeholder. Update with confirmed kit when available — applies to all episodes.</div>
+<section class="sec" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Equipment</div>
+    <h2 class="sec-title">Camera & Gear Manifest</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="g-tabs rv d1">
+    <button class="g-tab on" onclick="sg('acam',this)">A-Cam — BMPCC 6K</button>
+    <button class="g-tab" onclick="sg('bcam',this)">B-Cam — Lumix S5</button>
+    <button class="g-tab" onclick="sg('stills',this)">Stills — Canon 90D</button>
+    <button class="g-tab" onclick="sg('light',this)">Lighting</button>
+    <button class="g-tab" onclick="sg('sound',this)">Sound</button>
+    <button class="g-tab" onclick="sg('acc',this)">Accessories</button>
+  </div>
+  <div id="gp-acam" class="g-pane on rv d2">
+    <div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th>Qty</th></tr></thead><tbody>
+      <tr><td>Blackmagic Pocket Cinema Camera 6K</td><td>Primary interview — A-cam. White wall is the highest-risk exposure challenge in the series. ETTR is essential. Zebras on at 100 IRE to catch blown highlights on the plaster.</td><td class="tdq">—</td></tr>
+      <tr><td>CFast 2.0 cards 256GB</td><td>BRAW 3:1 — 3 cards minimum for the golden hour window</td><td class="tdq">—</td></tr>
+      <tr><td>LP-E6 batteries</td><td>6 charged minimum</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 85mm f/1.8</td><td>Hero interview — isolates subject cleanly; white wall becomes soft texture behind</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 50mm f/1.4</td><td>Shows louvre window, compound ledge, pots — the full location context</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 35mm f/2</td><td>B-roll — Kofi Oku Road, compound exterior, street</td><td class="tdq">—</td></tr>
+      <tr><td>Mattebox + ND filters</td><td>Essential — white wall reflects golden hour aggressively; 3-stop minimum in kit</td><td class="tdq">—</td></tr>
+      <tr><td>On-board monitor 7"</td><td>Critical — white wall will fool the eye; monitor is the only reliable exposure reference</td><td class="tdq">—</td></tr>
+      <tr><td>Heavy-duty tripod + fluid head</td><td>Locked off — zero wobble</td><td class="tdq">—</td></tr>
+    </tbody></table>
+  </div>
+  <div id="gp-bcam" class="g-pane rv d2">
+    <div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th>Qty</th></tr></thead><tbody>
+      <tr><td>Panasonic Lumix S5</td><td>B-camera — simultaneous CU, reaction shots, B-roll</td><td class="tdq">—</td></tr>
+      <tr><td>V-Log L — activated</td><td>Confirm before shoot day</td><td class="tdq">✓</td></tr>
+      <tr><td>UHS-II SD cards 256GB</td><td>V-Log data rate demands UHS-II minimum</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 85mm f/1.8 (L-mount)</td><td>Simultaneous tight CU during interview</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 24-70mm f/2.8</td><td>B-roll flexibility</td><td class="tdq">—</td></tr>
+      <tr><td>Batteries (S5 compatible)</td><td>6 charged minimum</td><td class="tdq">—</td></tr>
+      <tr><td>Second tripod + fluid head</td><td>B-cam locked off during interview</td><td class="tdq">—</td></tr>
+    </tbody></table>
+  </div>
+  <div id="gp-stills" class="g-pane rv d2">
+    <div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th>Qty</th></tr></thead><tbody>
+      <tr><td>Canon 90D</td><td>Social media stills + BTS — RAW only. White wall stills will be among the most striking in the series — the subject against minimal white is a strong editorial image.</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 50mm f/1.8</td><td>Hero portrait — subject isolated against white plaster with green louvre above</td><td class="tdq">—</td></tr>
+      <tr><td>Lens: 24-70mm</td><td>Location wide, pots, louvre window, open door</td><td class="tdq">—</td></tr>
+      <tr><td>SD cards 64GB</td><td>RAW stills — 3 minimum</td><td class="tdq">—</td></tr>
+      <tr><td>LP-E6 batteries</td><td>4 minimum</td><td class="tdq">—</td></tr>
+    </tbody></table>
+  </div>
+  <div id="gp-light" class="g-pane rv d2">
+    <div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th>Qty</th></tr></thead><tbody>
+      <tr><td>LED bi-colour key light</td><td>E004 NOTE: white wall bounces ambient aggressively — you may need LESS key here, not more. Bring a 4×4 diffusion frame as the primary tool. The wall is your biggest fill source.</td><td class="tdq">—</td></tr>
+      <tr><td>5-in-1 reflector 120cm+</td><td>Use white side, not silver — silver will be too harsh against white plaster</td><td class="tdq">—</td></tr>
+      <tr><td>4×4 diffusion frame</td><td>Critical for this location — use to flag and diffuse any direct sun before it hits the wall</td><td class="tdq">—</td></tr>
+      <tr><td>CTO gel set</td><td>Warm the LED key to match ambient — critical when sun drops and wall goes cool-white</td><td class="tdq">—</td></tr>
+      <tr><td>Black wrap / negative fill</td><td>For this white wall location: negative fill on the shadow side may be needed to retain contrast and prevent the face from going flat</td><td class="tdq">—</td></tr>
+      <tr><td>C-stands × 2</td><td>Key and diffusion frame arms</td><td class="tdq">—</td></tr>
+      <tr><td>Sandbags</td><td>Coastal wind — every stand weighted</td><td class="tdq">—</td></tr>
+      <tr><td>Light meter</td><td>Read incident at subject face AND at white wall face — the ratio tells you everything</td><td class="tdq">—</td></tr>
+    </tbody></table>
+  </div>
+  <div id="gp-sound" class="g-pane rv d2">
+    <div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Spec / Notes</th><th>Qty</th></tr></thead><tbody>
+      <tr><td>Field recorder (6-track)</td><td>Primary recorder — compound location may have some reflective ambience from white walls; monitor for any flutter echo</td><td class="tdq">—</td></tr>
+      <tr><td>Shotgun mic (boom)</td><td>Primary dialogue — supercardioid; manage Kofi Oku Road traffic at 4pm peak</td><td class="tdq">—</td></tr>
+      <tr><td>Lavalier mic</td><td>Redundancy lav — chest placement, run simultaneously</td><td class="tdq">—</td></tr>
+      <tr><td>Zeppelin blimp + windjammer</td><td>Compound may funnel coastal wind along the wall face</td><td class="tdq">—</td></tr>
+      <tr><td>Boom pole 3m+</td><td>Long reach — keep mic out of the white wall frame</td><td class="tdq">—</td></tr>
+      <tr><td>Wireless lav system</td><td>Clean wireless chain</td><td class="tdq">—</td></tr>
+      <tr><td>Studio headphones × 2</td><td>Both boom op and recorder op monitoring simultaneously</td><td class="tdq">—</td></tr>
+      <tr><td>Ambient recorder</td><td>Fixed on Kofi Oku Road — captures 4pm street ambient all day</td><td class="tdq">—</td></tr>
+    </tbody></table>
+  </div>
+  <div id="gp-acc" class="g-pane rv d2">
+    <div class="placeholder-notice"><strong>⚠ Placeholder — Awaiting Confirmed Kit List</strong></div>
+    <table class="dt"><thead><tr><th>Item</th><th>Notes</th><th>Qty</th></tr></thead><tbody>
+      <tr><td>Laptop + SSD drives 2TB</td><td>On-set double backup — immediately after each session</td><td class="tdq">—</td></tr>
+      <tr><td>Card readers (all formats)</td><td>Fast transfer pipeline</td><td class="tdq">—</td></tr>
+      <tr><td>Generator + fuel</td><td>Do not rely on mains power</td><td class="tdq">—</td></tr>
+      <tr><td>Colour checker passport</td><td>Both cameras at session start — white wall will shift colour temperature throughout golden hour dramatically</td><td class="tdq">—</td></tr>
+      <tr><td>Clapper / slate</td><td>Sync A-cam and B-cam timecode</td><td class="tdq">—</td></tr>
+      <tr><td>Portable chair — padded</td><td>Mobility consideration — bring the best available option; confirm with subject before positioning</td><td class="tdq">—</td></tr>
+      <tr><td>Umbrella / pop-up shade</td><td>Crew shade — compound may be limited on shade at 4pm</td><td class="tdq">—</td></tr>
+      <tr><td>First aid kit</td><td>On set at all times</td><td class="tdq">—</td></tr>
+      <tr><td>Emergency contact sheets</td><td>Laminated — every crew member carries one</td><td class="tdq">—</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<!-- ════════════════ SCHEMATIC [SHARED] ════════════════ -->
+<div class="shared-strip" id="schematic"></div>
+<div class="shared-notice">Lighting schematic updated for E004 white compound wall — the most technically demanding exposure in the series.</div>
+<section class="sec sec-ink" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye t shared-label">Golden Hour · Kofi Oku Road White Compound</div>
+    <h2 class="sec-title">Camera & Light Schematic</h2>
+    <div class="sec-rule t"></div>
+    <p class="body-t" style="margin-bottom:1.5rem;">The white compound wall inverts every assumption from the previous three episodes. E001–E003 were about managing warm-toned walls that absorbed light. E004 is about managing a surface that reflects almost everything. The white plaster is the most aggressive bounce source on set. The open doorway — with its deep interior shadow — is the episode's only natural anchor point.</p>
+  </div>
+  <div class="rv d1">
+    <div class="schematic"><span class="sw">WHITE WALL  [ chalk lime plaster · louvre window above · open door right ]</span>
+<span class="sd">                        ^</span>
+<span class="sg">     [ DARK GREEN LOUVRE WINDOW — visual anchor above subject ]</span>
+<span class="sd">     [ SHADOW INTERIOR — open door, right side — depth anchor ]</span>
+<span class="sd">                  [ SUBJECT — Hajia 1 Day ]</span>
+<span class="sd">            positioned mid-frame · wall behind · door right</span>
+<span class="sd">                  [ COMPOUND LEDGE — seating option ]</span>
+                        |
+<span class="st">  [ NEGATIVE FILL (black wrap or flag) — camera-right ]</span>
+<span class="st">  Prevents white wall bounce from filling shadow side completely</span>
+<span class="ss">  [ GOLDEN SUN — rakes wall from the west at golden hour ]</span>
+<span class="ss">  White plaster catches directional light: texture becomes visible</span>
+<span class="sw2">  [ LED KEY · diffused · camera-left · MINIMAL output ]</span>
+<span class="sw2">  The wall is your fill. The LED supplements only at low levels.</span>
+<span class="sc">        [ A-CAM · BMPCC 6K · 85mm · f/2.2 · on sticks ]</span>
+<span class="sc">        [ B-CAM · Lumix S5  · 85mm · f/2.0 · 30° offset ]</span>
+<span class="sd">        [ KEY: ETTR · zebras at 100 IRE · protect wall ]</span>
+<span class="sd">        [ the door shadow is depth · the wall texture is character ]</span></div>
+    <div class="sch-grid">
+      <div class="sch-box"><div class="sb-lbl">E004 Key Challenge</div><div class="sb-val">White wall blows highlights easily and fills shadows aggressively. Use negative fill to retain face contrast. Expose for skin tone and let the wall live at the top of the range — just under blown.</div></div>
+      <div class="sch-box g"><div class="sb-lbl">Louvre Window Use</div><div class="sb-val">The dark green louvre window above the subject is a natural compositional anchor. Frame at 50mm to show it. At golden hour, any warm light through the louvres onto the wall creates organic pattern — do not flag it. Let it breathe.</div></div>
+      <div class="sch-box t"><div class="sb-lbl">Camera Settings</div><div class="sb-val">25fps · 1/50s shutter<br>ISO 400 (white wall is bright)<br>ETTR with zebras on — non-negotiable<br>WB: ~5500K — white plaster reads cooler than warm walls</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SHOOT DAY [SHARED] ════════════════ -->
+<div class="shared-strip" id="timeline"></div>
+<div class="shared-notice">Shoot day timeline adjusted for E004 — availability window is after 4pm, tightest in the series.</div>
+<section class="sec sec-chalk" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Production</div>
+    <h2 class="sec-title">Shoot Day Run of Day</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t" style="margin-bottom:1rem;">E004 NOTE: This is the tightest production window in the series. Hajia 1 Day is available after 4pm. Golden hour begins approximately 16:30 WAT. Interview and golden hour coincide almost exactly. Everything must be ready before she arrives. No setup on her time.</p>
+  </div>
+  <div class="tl rv d1">
+    <div class="tl-i"><div class="tt">13:00</div><div class="tx">Crew call. Load all vehicles. Generator check and fuel.</div></div>
+    <div class="tl-i"><div class="tt">14:00</div><div class="tx">Arrive Kofi Oku Road white compound. Secure perimeter with local fixer. Unload and stage gear.</div></div>
+    <div class="tl-i"><div class="tt">14:30</div><div class="tx">A-cam and B-cam rigged on sticks. White wall exposure test. Zebras confirmed. Monitor shows no blown highlights at test WB.</div></div>
+    <div class="tl-i"><div class="tt">14:45</div><div class="tx">Lighting position — negative fill flag placed camera-right. LED key rough position, output at minimum. Reflector arm on white side.</div></div>
+    <div class="tl-i"><div class="tt">15:00</div><div class="tx">Sound rig complete. Ambient recorder running independently on Kofi Oku Road.</div></div>
+    <div class="tl-i"><div class="tt">15:20</div><div class="tx">Colour checker on both cameras in final subject position. WB locked against white wall. Full frame review on laptop — highlights in control.</div></div>
+    <div class="tl-i"><div class="tt">15:40</div><div class="tx">Seating confirmed at subject position. Chair in place and stable for mobility consideration. Comfort test complete.</div></div>
+    <div class="tl-i tp"><div class="tt" style="color:var(--teal);">16:00–16:15</div><div class="tx"><strong>Subject arrives.</strong> PM greets Hajia 1 Day. No cameras near. Confirm seating comfort. Introduce director and fixer.</div></div>
+    <div class="tl-i tp"><div class="tt" style="color:var(--teal);">16:15–16:30</div><div class="tx">Off-camera rapport. Director + subject + fixer only. Let her settle. Begin Homowo questions informally — warm the room before cameras roll.</div></div>
+    <div class="tl-i"><div class="tt">16:30</div><div class="tx">Subject to compound wall position. Wardrobe final check. Lav mic fitted discreetly in fabric fold.</div></div>
+    <div class="tl-i"><div class="tt">16:35</div><div class="tx">Both cameras locked. Light ratio confirmed. Levels set on recorder.</div></div>
+    <div class="tl-i key"><div class="tt" style="color:var(--sage-v);">16:40</div><div class="tx"><strong>ROLL.</strong> 90 seconds room tone first. Director begins Q1 in Ga — the nickname question or Homowo first.</div></div>
+    <div class="tl-i key"><div class="tt" style="color:var(--sage-v);">16:40–18:00</div><div class="tx"><strong>Primary interview.</strong> All sections. Golden hour peaks around 17:00–17:30 — this is the heart of the interview. The fishermen and fish-smoking women questions belong in this window.</div></div>
+    <div class="tl-i"><div class="tt">17:45</div><div class="tx">Sun near horizon — monitor white wall saturation shift. Transition LED key to warm supplement.</div></div>
+    <div class="tl-i key"><div class="tt" style="color:var(--sage-v);">18:00</div><div class="tx"><strong>Interview wrap.</strong> Thank in Ga. Hold cameras rolling 30 seconds of post-interview silence.</div></div>
+    <div class="tl-i"><div class="tt">18:05–19:00</div><div class="tx">B-roll — compound, white wall texture, louvre window detail, pots, open door, Kofi Oku Road.</div></div>
+    <div class="tl-i"><div class="tt">19:00</div><div class="tx">Wrap. All cards to data manager. Double backup on location. Label: JGD_Hajia1Day_YYYYMMDD_CAM_Card#</div></div>
+  </div>
+  <div class="rv d2" style="margin-top:1.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;">
+    <div class="call" style="border-left-color:var(--red);background:rgba(200,48,32,.03);"><div class="cl" style="color:var(--red);">Set Discipline — Non-Negotiable</div><div class="cv">Once cameras roll: no crew speaks. No phones. No movement. The compound is small — crew must find positions before rolling and not shift. Any movement in a white compound reads on camera. Signal-based communication only.</div></div>
+    <div class="call g"><div class="cl">The Nickname Question Contingency</div><div class="cv" style="color:var(--ink-s);">If the question about "Hajia 1 Day" opens something unexpected — a long story, a memory, laughter, a pause — follow it. Do not redirect to the planned arc. The nickname is a door. If she opens it, walk through it with her. The interview structure can flex. The moment cannot be recovered.</div></div>
+  </div>
+</section>
+
+<!-- ════════════════ SOUND [SHARED] ════════════════ -->
+<div class="shared-strip" id="sound"></div>
+<div class="shared-notice">Sound design philosophy is shared — same sonic architecture for every Jamestown Glory Days episode.</div>
+<section class="sec" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Post-Production</div>
+    <h2 class="sec-title">Sound Design</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">For E004 specifically: the fishing world is the sonic centrepiece. The sound design team must research and source authentic recordings of Jamestown's fishing beach — nets, wooden boats, the Atlantic, the smoke fires, the women's voices at market. These sounds are the memory world the episode reconstructs. The contrast between the quiet white compound (present) and the beach soundscape (past) is the episode's core sonic architecture.</p>
+  </div>
+  <div class="sl-grid rv d1">
+    <div class="sl"><div class="sl-bg">1</div><div class="sl-ttl">Dialogue Bed</div><div class="sl-d">Clean, present, intimate. Boom primary; lav as emergency fill. White compound may have some reflective ambience — monitor in real time and correct if needed.</div><div class="sl-impl">Peaks at −18dBFS; 12dB headroom. 4pm Kofi Oku Road is noisier than golden hour — noise-reduce dialogue carefully in post.</div></div>
+    <div class="sl"><div class="sl-bg">2</div><div class="sl-ttl">Kofi Oku Road — 4pm Ambient</div><div class="sl-d">Town D at afternoon peak — different from E003's morning feel. School children, market calls, motorcycle engines, coastal birds. This is E004's sonic fingerprint.</div><div class="sl-impl">Independent ambient recorder running all day. Loop crossfaded under all sequences.</div></div>
+    <div class="sl"><div class="sl-bg">3</div><div class="sl-ttl">Jamestown Beach — The Fishing World</div><div class="sl-d">The Atlantic at Jamestown. Wooden canoes. Nets on sand. The specific sound of the fishing beach in the era she describes. This is the episode's sonic centrepiece — the memory world that exists beneath her present voice.</div><div class="sl-impl">Source authentic recordings of the Jamestown/La beach. The smoke fires, the women, the boats — this is a layered field recording research task.</div></div>
+    <div class="sl"><div class="sl-bg">4</div><div class="sl-ttl">True Word Ministry Acoustics</div><div class="sl-d">When she speaks of her church — a different acoustic opens beneath her voice. True Word Ministry is a Pentecostal/charismatic space — more immediate, less formal reverb than the cathedrals of E001 and E002.</div><div class="sl-impl">Use a mid-sized evangelical church IR. Brief duration — not cathedral-scale. Pull back as she returns to street life.</div></div>
+    <div class="sl"><div class="sl-bg">5</div><div class="sl-ttl">Fish-Smoking Fire</div><div class="sl-d">When she describes the women smoking fish — the specific crackle and low roar of wood fire under fish racks should enter the sound design very briefly. One of the most visceral sonic memories in the series. Use it once, early, then hold it.</div><div class="sl-impl">Source authentic fire recordings. Layer under her description only. Let it fade before she moves to the present.</div></div>
+    <div class="sl"><div class="sl-bg">6</div><div class="sl-ttl">Memory Washes</div><div class="sl-d">4–8 bar motif from series composer. The fishing world may inform this episode's specific version — a percussive oar-on-hull element, or the rhythm of a net being cast.</div><div class="sl-impl">Maximum 3–4 uses per episode. Enters at 10% under dialogue; rises only after she stops speaking.</div></div>
+    <div class="sl"><div class="sl-bg">7</div><div class="sl-ttl">Series Motif — E004 Version</div><div class="sl-d">The 4-note Jamestown motif returns from E001–E003. In E004 it may incorporate the rhythm of the fishing beach — the Atlantic as the series' oldest clock.</div><div class="sl-impl">Full resolution in Part III closing. Then the motif. Then black. Then the sea, briefly, under the credits.</div></div>
+    <div class="sl"><div class="sl-bg">8</div><div class="sl-ttl">Youth Address End Card</div><div class="sl-d">"The women who fed you — do you know their names?" Dry mix, full presence, no reverb. Her voice alone. No music. The question hangs in the air before the series motif answers it.</div><div class="sl-impl">Underscore fades completely. Her voice. Silence. Then the motif. Then black.</div></div>
+  </div>
+</section>
+
+<!-- ════════════════ COLOUR GRADE [SHARED] ════════════════ -->
+<div class="shared-strip" id="grade"></div>
+<div class="shared-notice">Base grade philosophy is shared. E004 secondary grade notes are specific to the white compound wall.</div>
+<section class="sec sec-chalk" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Post-Production</div>
+    <h2 class="sec-title">Colour Grade Direction</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">E004 is the inverse grade challenge from all previous episodes. E001–E003 managed warm walls and skin tones in warm ambient. E004 has a near-neutral white wall, a cooler ambient at 5500K, and two small accent colours — sage green and terracotta wood. The grade must find warmth in a cool frame. The subject's skin tones are the only warm primary element. Everything else steps back.</p>
+  </div>
+  <div class="rv d1">
+    <div style="font-size:.56rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-mu);margin:1.3rem 0 .4rem;font-weight:700;">E004 Location Palette — Kofi Oku Road White Compound</div>
+    <div class="grade-strip">
+      <div class="gs" style="background:#F4F2EE"></div><div class="gs" style="background:#E0DDD8"></div>
+      <div class="gs" style="background:#C8C4BC"></div><div class="gs" style="background:#4A6B52"></div>
+      <div class="gs" style="background:#B89060"></div><div class="gs" style="background:#8A6A40"></div>
+      <div class="gs" style="background:#2E2E28"></div><div class="gs" style="background:#1C1C18"></div>
+      <div class="gs" style="background:#0E0E0C"></div><div class="gs" style="background:#070706"></div>
+    </div>
+    <div style="font-size:.61rem;color:var(--ink-mu);margin-bottom:1.3rem;">Chalk white → warm shadow grey → sage green louvre → terracotta wood → deep compound black</div>
+    <table class="dt">
+      <thead><tr><th>Element</th><th>Grade Target</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Skin tones</td><td style="color:var(--wood-d);">Warm, rich — the primary grade reference</td><td>In a white-wall frame, skin tones carry the entire emotional warmth of the image. Push them slightly warmer than neutral — they are doing all the heavy lifting.</td></tr>
+        <tr><td>White plaster wall</td><td style="color:var(--shadow-mu);">Cool-neutral — desaturate fully</td><td>Let the wall read as white-grey, not warm white. Adding warmth to the wall pushes it toward cream and loses the contrast with the subject's warm skin tones.</td></tr>
+        <tr><td>Sage green louvre</td><td style="color:var(--sage);">Muted sage — desaturate slightly</td><td>The green should read as aged paint, not fresh. Desaturate 15% vs. capture. It anchors the frame without competing.</td></tr>
+        <tr><td>Shadow interior (open door)</td><td style="color:var(--shadow-s);">Deep — protect from crushing</td><td>The dark interior of the doorway is the episode's depth anchor. Lift shadows enough to retain a trace of detail — do not crush to pure black. The darkness should feel like a room, not a void.</td></tr>
+        <tr><td>Wood tile / terracotta</td><td style="color:var(--wood);">Warm brown — accent</td><td>The warm wood tiles are the frame's secondary warmth. They should read clearly as wood, not grey. This warmth grounds the subject in a domestic space.</td></tr>
+        <tr><td>Overall look</td><td style="color:var(--shadow-mu);">Cool, still, domestic — restrained</td><td>E004 should feel quieter and more interior than any previous episode. The same series world — a different, more private corner of it. Less saturation, more tonal depth.</td></tr>
+        <tr><td>Series consistency</td><td style="color:var(--teal);">Same base LUT — all episodes</td><td>Secondary grade differentiates episodes within a consistent series colour world.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════════ EDITORIAL [SHARED] ════════════════ -->
+<div class="shared-strip" id="edit"></div>
+<div class="shared-notice">Editorial principles are shared — the same pacing philosophy applies across all Jamestown Glory Days episodes.</div>
+<section class="sec" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Post-Production</div>
+    <h2 class="sec-title">Editorial Principles</h2>
+    <div class="sec-rule"></div>
+    <p class="body-t">All series editorial principles apply to E004. Additional E004 note: if Hajia 1 Day names a fish-smoking woman — if she uses a name — that name should be held in the edit. It should be the cut point. The edit pauses on the name. This is the series mission made most personal: not community memory in general, but one specific woman's name, said aloud, preserved.</p>
+  </div>
+  <div class="principles rv d1">
+    <div class="pi"><div class="pi-n">The Held Cut</div><div><div class="pi-rule">"Hold interview frames 1.5× longer than instinct says."</div><div class="pi-why">Emotion lives in the face after words end. Cutting too early wastes the most valuable footage.</div></div></div>
+    <div class="pi"><div class="pi-n">The Breath Cut</div><div><div class="pi-rule">"Cut on the exhale, not the inhale."</div><div class="pi-why">Follows the natural rhythm of speech. Cuts on exhales feel invisible to the viewer.</div></div></div>
+    <div class="pi"><div class="pi-n">The Silence Cut</div><div><div class="pi-rule">"Never cut during a pause — wait for the next word, then cut back."</div><div class="pi-why">Pauses are the subject thinking. Cutting mid-pause breaks the viewer's connection to that thought.</div></div></div>
+    <div class="pi"><div class="pi-n">The Named Woman</div><div><div class="pi-rule">"If she names a fish-smoking woman — hold on her face after the name. Do not cut."</div><div class="pi-why">A name spoken aloud in this film is an act of preservation. The edit must hold that weight. The name should be the last thing heard before the cut. Not a question. Not a reaction. The name.</div></div></div>
+    <div class="pi"><div class="pi-n">The Nickname</div><div><div class="pi-rule">"The story of 'Hajia 1 Day' — wherever it leads — is the episode's spine."</div><div class="pi-why">If the nickname opens a long story, the edit follows it. The arc structure is a framework, not a constraint. This episode's story may be in the name.</div></div></div>
+    <div class="pi"><div class="pi-n">Youth End Card</div><div><div class="pi-rule">"Every episode ends with the elder's direct address to Jamestown's youth."</div><div class="pi-why">This is the series mission made explicit. It is not optional. It is the reason we are making this.</div></div></div>
+    <div class="pi"><div class="pi-n">Music Entry</div><div><div class="pi-rule">"Music enters at 10% under dialogue and rises only after the subject stops speaking."</div><div class="pi-why">Music must never compete with the elder's voice. Her words are primary.</div></div></div>
+    <div class="pi"><div class="pi-n">Episode Endings</div><div><div class="pi-rule">"Every episode ends on minimum 8 seconds of black."</div><div class="pi-why">Allow the audience to sit with what they heard before anything else demands their attention.</div></div></div>
+  </div>
+</section>
+
+<!-- ════════════════ DELIVERABLES [SHARED] ════════════════ -->
+<div class="shared-strip" id="deliver"></div>
+<div class="shared-notice">Deliverables and release strategy are shared — same output spec for every episode.</div>
+<section class="sec sec-chalk" style="padding-top:2.5rem;">
+  <div class="rv">
+    <div class="sec-eye shared-label">Release</div>
+    <h2 class="sec-title">Deliverables & Strategy</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="del-grid rv d1">
+    <div class="del-card"><div class="dc-type">Master</div><div class="dc-name">4K Broadcast Master</div><div class="dc-spec">3840×2160 · ProRes 4444 or H.265 · 25fps · Archival format per episode</div></div>
+    <div class="del-card"><div class="dc-type">Streaming</div><div class="dc-name">IMF Package</div><div class="dc-spec">SMPTE ST 2067 · Full audio mix · Subtitles in spec · DCI-P3 colour reference</div></div>
+    <div class="del-card"><div class="dc-type">Subtitles</div><div class="dc-name">Translation Files</div><div class="dc-spec">SRT + VTT · Human translator only · Translation notes file included</div></div>
+    <div class="del-card"><div class="dc-type">Broadcast</div><div class="dc-name">H.264 Screener</div><div class="dc-spec">1920×1080 · H.264 · 25fps · AAC 48kHz · Festival and broadcaster submissions</div></div>
+    <div class="del-card"><div class="dc-type">Social · Instagram</div><div class="dc-name">90-Second Vertical</div><div class="dc-spec">9:16 · 1080×1920px · The fishermen or fish-smoking women story · Subtitled</div></div>
+    <div class="del-card"><div class="dc-type">Social · YouTube</div><div class="dc-name">3-Minute Teaser</div><div class="dc-spec">16:9 · 1920×1080px · Drives audience to full episode</div></div>
+    <div class="del-card"><div class="dc-type">Social · TikTok</div><div class="dc-name">60-Second Vertical</div><div class="dc-spec">9:16 · Youth-facing hook · Her line on the women or the sea · Subtitled</div></div>
+    <div class="del-card"><div class="dc-type">Photography</div><div class="dc-name">Press Kit Stills</div><div class="dc-spec">20 selects · 300 DPI TIF · Hero portrait at white wall · Green louvre · BTS · Hands</div></div>
+    <div class="del-card"><div class="dc-type">Community</div><div class="dc-name">Jamestown Premiere</div><div class="dc-spec">E004 premieres in Jamestown. Consider screening near the beach — the episode's sonic world begins there.</div></div>
+  </div>
+  <div style="margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid var(--aged);text-align:center;" class="rv d3">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--ink-s);max-width:640px;margin:0 auto .8rem;">"The fish-smoking women had no titles. They had fires and salt and the sea. Hajia 1 Day remembers their names. This film makes sure those names are not the last place they are held."</p>
+    <div style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--shadow-mu);">Episode 004 Production Philosophy · Jamestown Glory Days · 2026</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--shadow);padding:2.2rem 4.5rem;border-top:1px solid var(--shadow-m);">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--chalk);margin-bottom:.2rem;">Jamestown Glory Days <span style="color:var(--lime-d);font-style:italic;">· Episode 004 · Hajia 1 Day</span></div>
+      <div style="font-size:.6rem;color:var(--shadow-mu);letter-spacing:.09em;text-transform:uppercase;">Production Bible · 2026 · Kofi Oku Road, Jamestown, Accra</div>
+    </div>
+    <div style="text-align:right;font-size:.65rem;color:var(--shadow-s);line-height:1.7;">Confidential — Production Use Only<br>New episode bibles generated as subjects are added<br>© 2026 All Rights Reserved</div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+function go(id){const e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('sb').classList.remove('open')}
+document.getElementById('mbtn').addEventListener('click',()=>document.getElementById('sb').classList.toggle('open'));
+window.addEventListener('scroll',()=>{const t=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pf').style.width=(t/d*100)+'%'});
+const sects=['hero','location','subject','youth','arc','wardrobe','checklist','gear','schematic','timeline','sound','grade','edit','deliver'];
+const nis=document.querySelectorAll('.ni[data-s]');
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){nis.forEach(n=>n.classList.remove('active'));const a=document.querySelector(`.ni[data-s="${e.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-28% 0px -60% 0px'});
+sects.forEach(id=>{const e=document.getElementById(id);if(e)io.observe(e)});
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{rootMargin:'0px 0px -65px 0px'});
+document.querySelectorAll('.rv').forEach(e=>ro.observe(e));
+function toggleArc(id){const c=document.getElementById(id),ex=c.classList.contains('open');document.querySelectorAll('.arc-card').forEach(x=>{x.classList.remove('open');x.querySelector('.arc-toggle').textContent='Expand acts \u2193'});if(!ex){c.classList.add('open');c.querySelector('.arc-toggle').textContent='Collapse \u2191'}}
+function chk(el){el.classList.toggle('done')}
+function sg(id,btn){document.querySelectorAll('.g-pane').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.g-tab').forEach(t=>t.classList.remove('on'));document.getElementById('gp-'+id).classList.add('on');btn.classList.add('on')}
+</script>
+</body>
+</html>
